@@ -62,7 +62,7 @@ public class PlaygamaIAP : MonoBehaviour
         for (int i = 0; i < currentCatalog.Count; i++)
         {
             var dict = currentCatalog[i];
-            if (dict.TryGetValue("commonId", out var id))
+            if (dict.TryGetValue("id", out var id))
                 namesBuilder.Append(id).Append(", ");
             if (dict.TryGetValue("price", out var price))
                 pricesBuilder.Append(price).Append(", ");
@@ -82,7 +82,7 @@ public class PlaygamaIAP : MonoBehaviour
         {
             foreach (var purchase in purchases)
             {
-                if (purchase.TryGetValue("commonId", out var id) && id == "NO_Ads")
+                if (purchase.TryGetValue("id", out var id) && id == "NO_Ads")
                 {
                     isNoAdsBought = true;
                     UpdateNoAdsAvailableText(true);
@@ -98,7 +98,7 @@ public class PlaygamaIAP : MonoBehaviour
     public string GetPurchaseNameById(int id)
     {
         if (id < 0 || id >= currentCatalog.Count) return null;
-        return currentCatalog[id].TryGetValue("commonId", out var name) ? name : null;
+        return currentCatalog[id].TryGetValue("id", out var name) ? name : null;
     }
 
     public string GetPurchasePriceById(int id)
@@ -152,11 +152,24 @@ public class PlaygamaIAP : MonoBehaviour
         }
     }
     
-    private void OnConsumePurchaseCompleted(bool success)
+    private void OnConsumePurchaseCompleted(bool success, Dictionary<string, string> purchase)
     {
         Debug.Log($"OnConsumePurchaseCompleted ({currentPurchaseId}), success: {success}");
         if (!success) return;
-        
+
+        // Log the full dictionary
+        if (purchase != null && purchase.Count > 0)
+        {
+            foreach (var kvp in purchase)
+            {
+                Debug.Log($"Purchase Dictionary -> Key: {kvp.Key}, Value: {kvp.Value}");
+            }
+        }
+        else
+        {
+            Debug.Log("Purchase dictionary is empty or null.");
+        }
+
         if (currentPurchaseId == "100_Coins")
         {
             coinAmount += 100;
