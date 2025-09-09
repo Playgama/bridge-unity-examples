@@ -1,4 +1,5 @@
 #if UNITY_WEBGL
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Playgama;
@@ -33,7 +34,6 @@ public class PlaygamaIAP : MonoBehaviour
 
     private List<Dictionary<string, string>> currentCatalog = new List<Dictionary<string, string>>();
     private int itemAmount = 0;
-    private string currentPurchaseId;
 
     private void Start()
     {
@@ -62,7 +62,7 @@ public class PlaygamaIAP : MonoBehaviour
         for (int i = 0; i < currentCatalog.Count; i++)
         {
             var dict = currentCatalog[i];
-            if (dict.TryGetValue("commonId", out var id))
+            if (dict.TryGetValue("id", out var id))
                 namesBuilder.Append(id).Append(", ");
             if (dict.TryGetValue("price", out var price))
                 pricesBuilder.Append(price).Append(", ");
@@ -82,7 +82,7 @@ public class PlaygamaIAP : MonoBehaviour
         {
             foreach (var purchase in purchases)
             {
-                if (purchase.TryGetValue("commonId", out var id) && id == "NO_Ads")
+                if (purchase.TryGetValue("id", out var id) && id == "NO_Ads")
                 {
                     isNoAdsBought = true;
                     UpdateNoAdsAvailableText(true);
@@ -98,7 +98,7 @@ public class PlaygamaIAP : MonoBehaviour
     public string GetPurchaseNameById(int id)
     {
         if (id < 0 || id >= currentCatalog.Count) return null;
-        return currentCatalog[id].TryGetValue("commonId", out var name) ? name : null;
+        return currentCatalog[id].TryGetValue("id", out var name) ? name : null;
     }
 
     public string GetPurchasePriceById(int id)
@@ -126,42 +126,61 @@ public class PlaygamaIAP : MonoBehaviour
     {
         // Show spinner & start the purchase flow
         iapLoading.SetActive(true);
-        currentPurchaseId = iapName;
-        Bridge.payments.Purchase(currentPurchaseId, OnPurchaseCompleted);
+        Bridge.payments.Purchase(iapName, OnPurchaseCompleted);
     }
 
     private void OnPurchaseCompleted(bool success, Dictionary<string, string> purchase)
     {
-        Debug.Log($"OnPurchaseCompleted ({currentPurchaseId}), success: {success}");
-
         // Hide spinner after a moment
         Invoke(nameof(InvokeDisable), 1f);
 
         if (!success) return;
 
-        if (currentPurchaseId == "NO_Ads")
+        if (purchase != null && purchase.TryGetValue("id", out var id) && !string.IsNullOrEmpty(id))
         {
-            // Non-consumable: just mark bought
-            isNoAdsBought = true;
-            UpdateNoAdsAvailableText(true);
+            Debug.Log($"OnPurchaseCompleted ({id}) successfully,");
+            if (id == "NO_Ads")
+            {
+                // Non-consumable: NO ADS
+                isNoAdsBought = true;
+                UpdateNoAdsAvailableText(true);
+                Debug.Log("NO_Ads purchased. Disabling ads.");
+            }
+            else
+            {
+                // Consumable: consume to grant items/currency
+                Bridge.payments.ConsumePurchase(id, OnConsumePurchaseCompleted);
+            }
         }
         else
         {
-            // Consumable: consume to credit coins, etc.
-            Bridge.payments.ConsumePurchase(currentPurchaseId, OnConsumePurchaseCompleted);
+            Debug.LogWarning("Purchase payload missing 'id' or it is empty. Skipping.");
         }
     }
     
-    private void OnConsumePurchaseCompleted(bool success)
+    private void OnConsumePurchaseCompleted(bool success, Dictionary<string, string> purchase)
     {
-        Debug.Log($"OnConsumePurchaseCompleted ({currentPurchaseId}), success: {success}");
+      
         if (!success) return;
-        
-        if (currentPurchaseId == "100_Coins")
+
+        if (purchase != null && purchase.TryGetValue("id", out var id))
         {
-            coinAmount += 100;
-            coinAmountText.text = "Balance: " + coinAmount + " Coins";
+            Debug.Log($"OnConsumePurchaseCompleted ({id}), success: {success}");
+            if (id == "100_Coins")
+            {
+                coinAmount += 100;
+                coinAmountText.text = "Balance: " + coinAmount + " Coins";
+            }
+            else
+            {
+                Debug.Log($"Unhandled purchase id: {id}");
+            }
         }
+        else
+        {
+            Debug.LogWarning("No 'id' key found in purchase dictionary.");
+        }
+    
     }
 
 

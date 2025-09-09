@@ -42,7 +42,6 @@ public class IAPButton : MonoBehaviour
     public void RefreshButton()
     {
         purchaseName.text = playgamaIAP.GetPurchaseNameById(buttonID);
-        // purchasePrice.text = playgamaIAP.GetPurchasePriceById(buttonID) + " " + playgamaIAP.GetPurchasePriceCurrencyCodeById(buttonID);
         purchasePrice.text = playgamaIAP.GetPurchasePriceById(buttonID);
     }
     
@@ -50,8 +49,6 @@ public class IAPButton : MonoBehaviour
     {
         playgamaIAP.InitiatePurchase(iap_name);
     }
-
-    
     
 }
 
