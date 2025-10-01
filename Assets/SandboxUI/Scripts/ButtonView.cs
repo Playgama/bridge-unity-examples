@@ -25,7 +25,11 @@ namespace SandboxUI.Scripts
 
         private void Awake()
         {
-            _arrow.SetActive(false);
+            if (_arrow)
+            {
+                _arrow.SetActive(false);
+            }
+
             SetNormalState();
         }
 
@@ -55,7 +59,10 @@ namespace SandboxUI.Scripts
 
             _bg.color = _bgNormalColor;
 
-            _arrow.SetActive(false);
+            if (_arrow)
+            {
+                _arrow.SetActive(false);
+            }
         }
 
         [ContextMenu("Button State/Hover")]
@@ -68,7 +75,10 @@ namespace SandboxUI.Scripts
 
             _bg.color = _bgHoverColor;
 
-            _arrow.SetActive(true);
+            if (_arrow)
+            {
+                _arrow.SetActive(true);
+            }
         }
     }
 }
