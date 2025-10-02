@@ -9,7 +9,7 @@ namespace SandboxUI.Scripts
 
         private void OnDisable()
         {
-            _scrollRect.verticalNormalizedPosition = 0;
+            _scrollRect.verticalNormalizedPosition = 1;
         }
     }
 }
