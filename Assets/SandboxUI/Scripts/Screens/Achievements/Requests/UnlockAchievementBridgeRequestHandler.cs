@@ -21,5 +21,11 @@ namespace SandboxUI.Scripts.Screens.Achievements.Requests
 
             Bridge.achievements.Unlock(options);
         }
+
+        private void OnDisable()
+        {
+            _achievementKey.text = string.Empty;
+            _achievementName.text = string.Empty;
+        }
     }
 }

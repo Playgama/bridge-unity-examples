@@ -31,5 +31,10 @@ namespace SandboxUI.Scripts.Screens.Leaderboards.Requests
             var strResponse = JsonConvert.SerializeObject(response);
             SetResponse(strResponse);
         }
+
+        private void OnDisable()
+        {
+            _leaderboardIdInput.text = string.Empty;
+        }
     }
 }

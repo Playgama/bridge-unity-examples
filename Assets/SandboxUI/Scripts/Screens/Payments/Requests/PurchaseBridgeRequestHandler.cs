@@ -18,5 +18,10 @@ namespace SandboxUI.Scripts.Screens.Payments.Requests
 
             Bridge.payments.Purchase(_productId.text);
         }
+
+        private void OnDisable()
+        {
+            _productId.text = string.Empty;
+        }
     }
 }

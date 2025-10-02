@@ -24,5 +24,11 @@ namespace SandboxUI.Scripts.Screens.Leaderboards.Requests
 
             Bridge.leaderboards.SetScore(_leaderboardIdInput.text, score);
         }
+
+        private void OnDisable()
+        {
+            _scoreInput.text = string.Empty;
+            _leaderboardIdInput.text = string.Empty;
+        }
     }
 }
