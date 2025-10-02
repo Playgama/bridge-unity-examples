@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SandboxUI.Scripts
+namespace SandboxUI.Scripts.Screens.Storage
 {
     public static class Constants
     {
