@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -46,7 +45,6 @@ namespace SandboxUI.Scripts
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            Debug.Log("Click");
             _onClick.Invoke();
         }
 

@@ -13,7 +13,7 @@ namespace SandboxUI.Scripts
 
         public void SetText(string value)
         {
-            _text.text = $"{_name}{Delimiter} <color=#{ColorUtility.ToHtmlStringRGB(_valueColor)}{value}</color>";
+            _text.text = $"{_name}{Delimiter} <color=#{ColorUtility.ToHtmlStringRGB(_valueColor)}>{value}</color>";
         }
     }
 }

@@ -613,6 +613,7 @@ GameObject:
   - component: {fileID: 3298055375805107372}
   - component: {fileID: 3531404444124177494}
   - component: {fileID: 4566222237938702981}
+  - component: {fileID: 1774240913756290187}
   m_Layer: 5
   m_Name: ScreenTemplate
   m_TagString: Untagged
@@ -705,6 +706,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1774240913756290187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7048045687181678679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7dd613f0904217a47b871e2bc25646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scrollRect: {fileID: 1496487678822381599}
 --- !u!1 &7243285704596860157
 GameObject:
   m_ObjectHideFlags: 0
