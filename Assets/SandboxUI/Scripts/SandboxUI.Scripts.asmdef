@@ -1,3 +1,6 @@
 {
-	"name": "SandboxUI.Scripts"
+  "name": "SandboxUI.Scripts",
+  "references": [
+    "Unity.TextMeshPro"
+  ]
 }
