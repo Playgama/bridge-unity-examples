@@ -1,10 +1,7 @@
 {
-    "name": "SandboxUI.Scripts",
+    "name": "PlaygamaBridge.Scripts",
     "rootNamespace": "",
-    "references": [
-        "Unity.TextMeshPro",
-        "PlaygamaBridge.Scripts"
-    ],
+    "references": [],
     "includePlatforms": [
       "Editor",
       "WebGL"

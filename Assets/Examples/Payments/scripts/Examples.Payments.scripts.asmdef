@@ -1,0 +1,11 @@
+﻿{
+  "name": "Examples.Payments.scripts",
+  "references": [
+    "PlaygamaBridge.Scripts",
+    "Unity.TextMeshPro"
+  ],
+  "includePlatforms": [
+    "Editor",
+    "WebGL"
+  ]
+}

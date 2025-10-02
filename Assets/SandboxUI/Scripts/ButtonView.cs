@@ -23,6 +23,12 @@ namespace SandboxUI.Scripts
         [SerializeField] private Color _elementHoverColor;
         [SerializeField] private Color _bgHoverColor;
 
+        public event UnityAction OnClick
+        {
+            add => _onClick.AddListener(value);
+            remove => _onClick.RemoveListener(value);
+        }
+
         private void Awake()
         {
             if (_arrow)
