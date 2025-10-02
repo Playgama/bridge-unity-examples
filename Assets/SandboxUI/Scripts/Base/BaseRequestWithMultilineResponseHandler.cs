@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SandboxUI.Scripts
 {
-    public abstract class BaseRequestWithMultilineResponseHandler : BaseRequestHandler
+    public abstract class BaseRequestWithMultilineResponseHandler : BaseRequestWithResponseHandler
     {
         [SerializeField] private TMP_InputField _responseField;
 
@@ -21,6 +21,9 @@ namespace SandboxUI.Scripts
         /// </summary>
         private void TryRemoveRaycastFromCaret()
         {
+            if (_isCaretRaycastRemoved)
+                return;
+
             var selectionCaret = _responseField.GetComponentInChildren<TMP_SelectionCaret>();
             if (selectionCaret)
             {

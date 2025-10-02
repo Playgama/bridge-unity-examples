@@ -2,7 +2,7 @@
 
 namespace SandboxUI.Scripts
 {
-    public abstract class BaseRequestWithPropertyValueResponseHandler : BaseRequestHandler
+    public abstract class BaseRequestWithPropertyValueResponseHandler : BaseRequestWithResponseHandler
     {
         [SerializeField] private PropertyTextView _property;
 

@@ -1,0 +1,47 @@
+﻿using System.Collections.Generic;
+using Playgama;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SandboxUI.Scripts.Requests
+{
+    public class SaveDataRequestHandler : BaseRequestHandler
+    {
+        [SerializeField] private TMP_InputField _coinsCountInput;
+        [SerializeField] private TMP_InputField _levelIdInput;
+        [SerializeField] private ToggleGroup _toggleGroup;
+
+        public override void SendRequest()
+        {
+            if (_coinsCountInput.text == string.Empty || _levelIdInput.text == string.Empty)
+            {
+                return;
+            }
+
+            if (!float.TryParse(_coinsCountInput.text, out var coinsCount))
+            {
+                return;
+            }
+
+            var toggle = _toggleGroup.GetFirstActiveToggle();
+
+            if (!toggle)
+            {
+                return;
+            }
+
+            var storageType = StorageToggleUtils.ConvertToggleToStorageType(toggle);
+
+            var data = new List<object> {_levelIdInput.text, coinsCount};
+
+            Bridge.storage.Set(Constants.Keys, data, storageType: storageType);
+        }
+
+        protected override void OnDisableInternal()
+        {
+            _coinsCountInput.text = string.Empty;
+            _levelIdInput.text = string.Empty;
+        }
+    }
+}
