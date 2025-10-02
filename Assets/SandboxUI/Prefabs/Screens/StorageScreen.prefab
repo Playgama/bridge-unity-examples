@@ -1162,6 +1162,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813282620218612497, guid: 89e7cd71b4f3c82478d27ac42639bf83, type: 3}
+      propertyPath: m_text
+      value: 'Storage
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 6421336939036209306, guid: 89e7cd71b4f3c82478d27ac42639bf83, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
