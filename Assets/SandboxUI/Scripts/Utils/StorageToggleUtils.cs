@@ -1,7 +1,7 @@
 ﻿using Playgama.Modules.Storage;
 using UnityEngine.UI;
 
-namespace SandboxUI.Scripts
+namespace SandboxUI.Scripts.Utils
 {
     public static class StorageToggleUtils
     {

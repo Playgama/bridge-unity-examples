@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SandboxUI.Scripts
+namespace SandboxUI.Scripts.Base
 {
     public abstract class BaseBridgeRequestWithPropertyValueResponseHandler : BaseBridgeRequestWithResponseHandler
     {

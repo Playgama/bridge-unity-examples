@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace SandboxUI.Scripts
+namespace SandboxUI.Scripts.Base
 {
     public class PropertyTextView : MonoBehaviour
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using Playgama;
 using Playgama.Modules.Game;
+using SandboxUI.Scripts.Base;
 using UnityEngine;
 
 namespace SandboxUI.Scripts.Screens

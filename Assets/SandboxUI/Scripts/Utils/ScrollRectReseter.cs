@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace SandboxUI.Scripts
+namespace SandboxUI.Scripts.Utils
 {
     public class ScrollRectReseter : MonoBehaviour
     {

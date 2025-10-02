@@ -2,7 +2,7 @@
 using Playgama.Modules.Platform;
 using UnityEngine;
 
-namespace SandboxUI.Scripts
+namespace SandboxUI.Scripts.Base
 {
     public sealed class BridgePlatformMessageSender : MonoBehaviour
     {

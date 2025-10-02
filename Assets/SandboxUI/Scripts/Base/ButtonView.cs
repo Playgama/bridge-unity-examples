@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace SandboxUI.Scripts
+namespace SandboxUI.Scripts.Base
 {
     public class ButtonView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
