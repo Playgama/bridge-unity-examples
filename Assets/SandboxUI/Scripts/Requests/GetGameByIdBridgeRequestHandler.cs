@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SandboxUI.Scripts.Requests
 {
-    public class GetGameByIdRequestHandler : BaseRequestWithMultilineResponseHandler
+    public class GetGameByIdBridgeRequestHandler : BaseBridgeRequestWithMultilineResponseHandler
     {
         [SerializeField] private TMP_InputField _gameIdInput;
 

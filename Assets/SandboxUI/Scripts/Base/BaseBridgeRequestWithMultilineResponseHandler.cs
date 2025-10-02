@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SandboxUI.Scripts
 {
-    public abstract class BaseRequestWithMultilineResponseHandler : BaseRequestWithResponseHandler
+    public abstract class BaseBridgeRequestWithMultilineResponseHandler : BaseBridgeRequestWithResponseHandler
     {
         [SerializeField] private TMP_InputField _responseField;
 
@@ -33,7 +33,7 @@ namespace SandboxUI.Scripts
             _isCaretRaycastRemoved = true;
         }
 
-        protected sealed override void OnDisableInternal()
+        private  void OnDisable()
         {
             _responseField.gameObject.SetActive(false);
         }

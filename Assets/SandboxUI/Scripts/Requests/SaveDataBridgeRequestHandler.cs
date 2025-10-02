@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace SandboxUI.Scripts.Requests
 {
-    public class SaveDataRequestHandler : BaseRequestHandler
+    public class SaveDataBridgeRequestHandler : BaseBridgeRequestHandler
     {
         [SerializeField] private TMP_InputField _coinsCountInput;
         [SerializeField] private TMP_InputField _levelIdInput;
@@ -38,7 +38,7 @@ namespace SandboxUI.Scripts.Requests
             Bridge.storage.Set(Constants.Keys, data, storageType: storageType);
         }
 
-        protected override void OnDisableInternal()
+        private void OnDisable()
         {
             _coinsCountInput.text = string.Empty;
             _levelIdInput.text = string.Empty;

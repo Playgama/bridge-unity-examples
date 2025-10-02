@@ -4,7 +4,7 @@ using Playgama;
 
 namespace SandboxUI.Scripts.Requests
 {
-    public sealed class GetServerTimeRequestHandler : BaseRequestWithPropertyValueResponseHandler
+    public sealed class GetServerTimeBridgeRequestHandler : BaseBridgeRequestWithPropertyValueResponseHandler
     {
         public override void SendRequest()
         {

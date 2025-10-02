@@ -1,5 +1,6 @@
 ﻿using System;
 using Playgama;
+using Playgama.Modules.Game;
 using UnityEngine;
 
 namespace SandboxUI.Scripts.Screens
@@ -11,8 +12,20 @@ namespace SandboxUI.Scripts.Screens
 
         private void OnEnable()
         {
-            _currentVisibilityState.SetText(Bridge.game.visibilityState.ToString());
-            _lastVisibilityState.SetText("true visible ->");
+            var visibilityState = Bridge.game.visibilityState.ToString();
+            _currentVisibilityState.SetText(visibilityState);
+            _lastVisibilityState.AddValueAndSet(visibilityState);
+            Bridge.game.visibilityStateChanged += HandleGameVisibilityStateChanged;
+        }
+
+        private void OnDisable()
+        {
+            Bridge.game.visibilityStateChanged -= HandleGameVisibilityStateChanged;
+        }
+
+        private void HandleGameVisibilityStateChanged(VisibilityState state)
+        {
+            _lastVisibilityState.AddValueAndSet(state.ToString());
         }
     }
 }

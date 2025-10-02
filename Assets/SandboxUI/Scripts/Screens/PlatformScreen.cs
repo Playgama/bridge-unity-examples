@@ -1,6 +1,7 @@
 ﻿using Playgama;
 using SandboxUI.Scripts.Requests;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SandboxUI.Scripts.Screens
 {
@@ -12,7 +13,7 @@ namespace SandboxUI.Scripts.Screens
         [SerializeField] private PropertyTextView _payload;
         [SerializeField] private PropertyTextView _tld;
         [SerializeField] private PropertyTextView _isAudio;
-        [SerializeField] private GetServerTimeRequestHandler _getServerTimeHandler;
+        [SerializeField] private GetServerTimeBridgeRequestHandler _getServerTimeBridgeHandler;
         [SerializeField] private PropertyTextView _isGetAllGamesSupported;
         [SerializeField] private PropertyTextView _isGetGameByIdSupported;
 
@@ -22,10 +23,10 @@ namespace SandboxUI.Scripts.Screens
             _language.SetText(Bridge.platform.language);
             _payload.SetText(Bridge.platform.payload);
             _tld.SetText(Bridge.platform.tld);
-            _isAudio.SetText(Bridge.platform.isAudioEnabled ? "enabled" : "disabled");
-            _getServerTimeHandler.SendRequest();
-            _isGetAllGamesSupported.SetText(Bridge.platform.isGetAllGamesSupported ? "supported" : "not supported");
-            _isGetGameByIdSupported.SetText(Bridge.platform.isGetGameByIdSupported ? "supported" : "not supported");
+            _isAudio.SetText(Bridge.platform.isAudioEnabled.ToString());
+            _getServerTimeBridgeHandler.SendRequest();
+            _isGetAllGamesSupported.SetText(Bridge.platform.isGetAllGamesSupported.ToString());
+            _isGetGameByIdSupported.SetText(Bridge.platform.isGetGameByIdSupported.ToString());
         }
     }
 }

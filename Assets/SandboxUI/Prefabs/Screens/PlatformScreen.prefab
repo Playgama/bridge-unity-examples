@@ -2819,6 +2819,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7048045687181678679, guid: 89e7cd71b4f3c82478d27ac42639bf83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8379435754972050354, guid: 89e7cd71b4f3c82478d27ac42639bf83, type: 3}
       propertyPath: m_HorizontalFit
       value: 2
@@ -2892,7 +2896,7 @@ MonoBehaviour:
   _payload: {fileID: 3602222247999566094}
   _tld: {fileID: 7817084308961399546}
   _isAudio: {fileID: 8062406927949596757}
-  _getServerTimeHandler: {fileID: 2975237213362252727}
+  _getServerTimeBridgeHandler: {fileID: 2975237213362252727}
   _isGetAllGamesSupported: {fileID: 7594925871492304950}
   _isGetGameByIdSupported: {fileID: 8352062822938234298}
 --- !u!224 &2487274914708841074 stripped

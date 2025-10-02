@@ -4,7 +4,7 @@ using Playgama;
 
 namespace SandboxUI.Scripts.Requests
 {
-    public class GetAllGamesRequestHandler : BaseRequestWithMultilineResponseHandler
+    public class GetAllGamesBridgeRequestHandler : BaseBridgeRequestWithMultilineResponseHandler
     {
         public override void SendRequest()
         {
