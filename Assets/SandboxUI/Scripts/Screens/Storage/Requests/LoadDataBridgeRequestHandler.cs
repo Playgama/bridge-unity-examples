@@ -32,8 +32,8 @@ namespace SandboxUI.Scripts.Screens.Storage.Requests
             if (!success)
                 return;
 
-            _coinsCountInput.text = data[0];
-            _levelIdInput.text = data[1];
+            _levelIdInput.text = data[0];
+            _coinsCountInput.text = data[1];
         }
 
         private void OnDisable()
