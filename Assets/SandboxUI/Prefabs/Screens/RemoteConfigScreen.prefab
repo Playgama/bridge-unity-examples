@@ -112,6 +112,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5818778973456505941, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
+      propertyPath: _onClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818778973456505941, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
+      propertyPath: _onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818778973456505941, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
+      propertyPath: _onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1418526519431927724}
+    - target: {fileID: 5818778973456505941, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
+      propertyPath: _onClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818778973456505941, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
+      propertyPath: _onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendRequest
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818778973456505941, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
+      propertyPath: _onClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SandboxUI.Scripts.Screens.RemoteConfig.Requests.GetRemoteConfigBridgeRequestHandler,
+        Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818778973456505941, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
+      propertyPath: _onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6593189178921767569, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
       propertyPath: m_Name
       value: GetBtn
@@ -119,8 +148,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6593189178921767569, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1418526519431927724}
   m_SourcePrefab: {fileID: 100100000, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
+--- !u!1 &7797636395023229899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6593189178921767569, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
+  m_PrefabInstance: {fileID: 3983841087391314266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1418526519431927724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7797636395023229899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a128be0c78b4bf98dc4d5f937e59a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _responseField: {fileID: 7308888930767888498}
 --- !u!224 &8707704431280531736 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5737173986031343682, guid: 6e4b78f2f50da734da2722c0afaceffa, type: 3}
@@ -231,6 +281,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac179afb3dd0c9247ba7d8898befe8b9, type: 3}
+--- !u!114 &3714034177049506972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9191400842098921259, guid: ac179afb3dd0c9247ba7d8898befe8b9, type: 3}
+  m_PrefabInstance: {fileID: 5477657226908433335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1784c7e3deed4b74a85272e5552dc90c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7820451311972501571 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2342820897274049524, guid: ac179afb3dd0c9247ba7d8898befe8b9, type: 3}
@@ -376,8 +437,29 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5175872123655931403, guid: 89e7cd71b4f3c82478d27ac42639bf83, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6309105053913712975}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7048045687181678679, guid: 89e7cd71b4f3c82478d27ac42639bf83, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6801811969238340795}
   m_SourcePrefab: {fileID: 100100000, guid: 89e7cd71b4f3c82478d27ac42639bf83, type: 3}
+--- !u!1 &1584340953633598612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7048045687181678679, guid: 89e7cd71b4f3c82478d27ac42639bf83, type: 3}
+  m_PrefabInstance: {fileID: 8373042187467699395}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6801811969238340795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584340953633598612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c385f35d45c48adb7506085ffe6ed1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isRemoteConfigSupported: {fileID: 3714034177049506972}
 --- !u!224 &3740065526572184264 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5175872123655931403, guid: 89e7cd71b4f3c82478d27ac42639bf83, type: 3}
@@ -489,3 +571,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2887919291172433949, guid: abb9d080cbcc60c4cbea110b6ed020be, type: 3}
   m_PrefabInstance: {fileID: 9195649869651556690}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7308888930767888498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1942143356755171616, guid: abb9d080cbcc60c4cbea110b6ed020be, type: 3}
+  m_PrefabInstance: {fileID: 9195649869651556690}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
