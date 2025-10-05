@@ -152,7 +152,7 @@ public class PlaygamaIAP : MonoBehaviour
         }
     }
     
-    private void OnConsumePurchaseCompleted(bool success)
+    private void OnConsumePurchaseCompleted(bool success, Dictionary<string, string> purchase)
     {
         Debug.Log($"OnConsumePurchaseCompleted ({currentPurchaseId}), success: {success}");
         if (!success) return;

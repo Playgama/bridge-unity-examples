@@ -15,58 +15,50 @@
             "devId": "",
             "publisherId": ""
         },
+        "huawei": {
+            "appId": ""
+        },
+        "msn": {
+            "gameId": ""
+        },
+        "discord": {
+            "appId": ""
+        },
+        "gamepush": {
+            "projectId": "",
+            "publicToken": ""
+        },
+        "jio_games": {
+            "packageName": ""
+        },
+        "crazy_games": {
+            "xsollaProjectId": "",
+            "isSandbox": false,
+            "useUserToken": false
+        },
         "facebook": {
-            "bannerPlacementId": "",
-            "interstitialPlacements": [],
-            "rewardedPlacements": []
+            "subscribeForNotificationsOnStart": true,
+            "sendAnalyticsEvents": false
+        },
+        "yandex": {
+            "useSignedData": false,
+            "sendAnalyticsEvents": false
+        },
+        "youtube": {
+            "sendAnalyticsEvents": false
         }
     },
-    "payments": [
-        {
-            "commonId": "NO_Ads",
-            "yandex": {
-                "id": "NO_Ads"
-            },
-            "facebook": {
-                "productID": "NO_Ads"
-            },
-            "msn": {
-                "productId": "NO_Ads"
-            },
-            "playgama": {
-                "amount": 1
-            },
-            "qa_tool": {
-                "id": "NO_Ads",
-                "amount": 1
-            },
-            "playdeck": {
-                "amount": 1,
-                "description": "NO_Ads"
-            }
-        }, 
-        {
-            "commonId": "100_Coins",
-            "yandex": {
-                "id": "100_Coins"
-            },
-            "facebook": {
-                "productID": "100_Coins"
-            },
-            "msn": {
-                "productId": "100_Coins"
-            },
-            "playgama": {
-                "amount": 1
-            },
-            "qa_tool": {
-                "id": "100_Coins",
-                "amount": 1
-            },
-            "playdeck": {
-                "amount": 1,
-                "description": "100_Coins"
-            }
-        }
-    ]
+    "advertisement": {
+        "interstitial": {
+            "preloadOnStart": true
+        },
+        "rewarded": {
+            "preloadOnStart": true
+        },
+        "useBuiltInErrorPopup": true,
+        "backfillId": ""
+    },
+    "payments": [],
+    "leaderboards": [],
+    "sendAnalyticsEvents": true
 }
