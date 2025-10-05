@@ -10,7 +10,7 @@ namespace Examples.Starter.Scripts.MenuSystem
 
         private void Awake()
         {
-            foreach (var menu in menuHolder.GetComponentsInChildren<Menu>())
+            foreach (var menu in menuHolder.GetComponentsInChildren<Menu>(true))
             {
                 menu.Register(this);
             }
