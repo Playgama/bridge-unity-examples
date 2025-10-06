@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Examples.Starter.Scripts
+namespace Playgama.Examples.Starter.Scripts
 {
     /// <summary>
     /// Represents a history of states with a fixed maximum size. This class is a generic FIFO (First-In-First-Out)

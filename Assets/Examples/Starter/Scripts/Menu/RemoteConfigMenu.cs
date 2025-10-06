@@ -1,12 +1,11 @@
 using System;
-using System.Collections.Generic;
-using Examples.Starter.Scripts.Playgama;
 using Newtonsoft.Json;
+using Playgama.Examples.Starter.Scripts.Playgama;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     public class RemoteConfigMenu : MenuSystem.Menu
     {
@@ -28,18 +27,7 @@ namespace Examples.Starter.Scripts.Menu
             });
         }
 
-        public override void Open()
-        {
-            base.Open();
-            InitMenu();
-        }
-
-        private void Start()
-        {
-            InitMenu();
-        }
-
-        private void InitMenu()
+        protected override void InitMenu()
         {
             SetTextProperty(menuSettings.TextIsRemoteConfigSupported, "Is Remote Config Supported", PlaygamaManager.IsRemoteConfigSupported.ToString());
             menuSettings.ButtonGetRemoteConfig.interactable = PlaygamaManager.IsRemoteConfigSupported;
@@ -48,15 +36,15 @@ namespace Examples.Starter.Scripts.Menu
         [Serializable]
         public class MenuSettings
         {
-            [SerializeField] private PlaygamaManager playgamaManager;
-            [SerializeField] private TextMeshProUGUI textIsRemoteConfigSupported;
-            [SerializeField] private Button buttonGetRemoteConfig;
-            [SerializeField] private TextMeshProUGUI textRemoteConfigResult;
-
             public PlaygamaManager PlaygamaManager => playgamaManager;
             public TextMeshProUGUI TextIsRemoteConfigSupported => textIsRemoteConfigSupported;
             public Button ButtonGetRemoteConfig => buttonGetRemoteConfig;
             public TextMeshProUGUI TextRemoteConfigResult => textRemoteConfigResult;
+            
+            [SerializeField] private PlaygamaManager playgamaManager;
+            [SerializeField] private TextMeshProUGUI textIsRemoteConfigSupported;
+            [SerializeField] private Button buttonGetRemoteConfig;
+            [SerializeField] private TextMeshProUGUI textRemoteConfigResult;
         }
     }
 }

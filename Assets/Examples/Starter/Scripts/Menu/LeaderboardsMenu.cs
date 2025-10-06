@@ -1,14 +1,12 @@
 using System;
-using Examples.Starter.Scripts.Playgama;
 using Newtonsoft.Json;
+using Playgama.Examples.Starter.Scripts.Playgama;
 using Playgama.Modules.Leaderboards;
 using TMPro;
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     public class LeaderboardsMenu : MenuSystem.Menu
     {
@@ -61,18 +59,7 @@ namespace Examples.Starter.Scripts.Menu
             });
         }
 
-        public override void Open()
-        {
-            base.Open();
-            InitMenu();
-        }
-
-        private void Start()
-        {
-            InitMenu();
-        }
-
-        private void InitMenu()
+        protected override void InitMenu()
         {
             SetTextProperty(menuSettings.TextLeaderboardsType, "Leaderboards Type", PlaygamaManager.LeaderboardType.ToString());
             menuSettings.InputFieldScore.interactable = PlaygamaManager.LeaderboardType != LeaderboardType.NotAvailable;
@@ -86,14 +73,6 @@ namespace Examples.Starter.Scripts.Menu
         [Serializable]
         public class MenuSettings
         {
-            [SerializeField] private PlaygamaManager playgamaManager;
-            [SerializeField] private TextMeshProUGUI textLeaderboardsType;
-            [SerializeField] private TMP_InputField inputFieldScore;
-            [SerializeField] private TMP_InputField inputFieldLeaderboardId;
-            [SerializeField] private TMP_InputField inputFieldLeaderboardIdGetEntries;
-            [SerializeField] private Button buttonSetScore;
-            [SerializeField] private Button buttonGetEntries;
-            [SerializeField] private TMP_Text textRequestResult;
             public PlaygamaManager PlaygamaManager => playgamaManager;
             public TextMeshProUGUI TextLeaderboardsType => textLeaderboardsType;
             public TMP_InputField InputFieldScore => inputFieldScore;
@@ -102,6 +81,15 @@ namespace Examples.Starter.Scripts.Menu
             public Button ButtonSetScore => buttonSetScore;
             public Button ButtonGetEntries => buttonGetEntries;
             public TMP_Text TextRequestResult => textRequestResult;
+            
+            [SerializeField] private PlaygamaManager playgamaManager;
+            [SerializeField] private TextMeshProUGUI textLeaderboardsType;
+            [SerializeField] private TMP_InputField inputFieldScore;
+            [SerializeField] private TMP_InputField inputFieldLeaderboardId;
+            [SerializeField] private TMP_InputField inputFieldLeaderboardIdGetEntries;
+            [SerializeField] private Button buttonSetScore;
+            [SerializeField] private Button buttonGetEntries;
+            [SerializeField] private TMP_Text textRequestResult;
         }
     }
 }

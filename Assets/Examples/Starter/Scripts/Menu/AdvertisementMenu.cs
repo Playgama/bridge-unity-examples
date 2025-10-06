@@ -1,12 +1,11 @@
 using System;
-using Examples.Starter.Scripts.Playgama;
+using Playgama.Examples.Starter.Scripts.Playgama;
 using Playgama.Modules.Advertisement;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     public class AdvertisementMenu : MenuSystem.Menu
     {
@@ -58,11 +57,6 @@ namespace Examples.Starter.Scripts.Menu
             PlaygamaManager.AdvertisementRewardedStateChanged += PlaygamaManagerOnAdvertisementRewardedStateChanged;
         }
 
-        private void Start()
-        {
-            InitMenu();
-        }
-
         protected override void OnDestroy()
         {
             PlaygamaManager.AdvertisementBannerStateChanged -= PlaygamaManagerOnAdvertisementBannerStateChanged;
@@ -71,7 +65,7 @@ namespace Examples.Starter.Scripts.Menu
             base.OnDestroy();
         }
 
-        private void InitMenu()
+        protected override void InitMenu()
         {
             SetTextProperty(menuSettings.TextIsBannerSupported, "Is Banner Supported", PlaygamaManager.IsBannerSupported.ToString());
             SetTextProperty(menuSettings.TextLastBannerState, "Last Banner States", _bannerStates.ToString());
@@ -110,6 +104,21 @@ namespace Examples.Starter.Scripts.Menu
         [Serializable]
         public class MenuSettings
         {
+            public PlaygamaManager PlaygamaManager => playgamaManager;
+            public TextMeshProUGUI TextIsBannerSupported => textIsBannerSupported;
+            public TextMeshProUGUI TextLastBannerState => textLastBannerState;
+            public Button ButtonShowBanner => buttonShowBanner;
+            public Button ButtonHideBanner => buttonHideBanner;
+            public TextMeshProUGUI TextIsInterstitialSupported => textIsInterstitialSupported;
+            public TextMeshProUGUI TextMinimumDelayBetweenInterstitial => textMinimumDelayBetweenInterstitial;
+            public TextMeshProUGUI TextLastInterstitialStates => textLastInterstitialStates;
+            public Button ButtonShowInterstitial => buttonShowInterstitial;
+            public TextMeshProUGUI TextIsRewardedSupported => textIsRewardedSupported;
+            public TextMeshProUGUI TextLastRewardedStates => textLastRewardedStates;
+            public TextMeshProUGUI TextRewardedPlacement => textRewardedPlacement;
+            public Button ButtonShowRewarded => buttonShowRewarded;
+            public Button ButtonCheckAdBlock => buttonCheckAdBlock;
+            
             [SerializeField] private PlaygamaManager playgamaManager;
             [SerializeField] private TextMeshProUGUI textIsBannerSupported;
             [SerializeField] private TextMeshProUGUI textLastBannerState;
@@ -127,20 +136,6 @@ namespace Examples.Starter.Scripts.Menu
             [SerializeField] private Button buttonShowRewarded;
 
             [SerializeField] private Button buttonCheckAdBlock;
-            public PlaygamaManager PlaygamaManager => playgamaManager;
-            public TextMeshProUGUI TextIsBannerSupported => textIsBannerSupported;
-            public TextMeshProUGUI TextLastBannerState => textLastBannerState;
-            public Button ButtonShowBanner => buttonShowBanner;
-            public Button ButtonHideBanner => buttonHideBanner;
-            public TextMeshProUGUI TextIsInterstitialSupported => textIsInterstitialSupported;
-            public TextMeshProUGUI TextMinimumDelayBetweenInterstitial => textMinimumDelayBetweenInterstitial;
-            public TextMeshProUGUI TextLastInterstitialStates => textLastInterstitialStates;
-            public Button ButtonShowInterstitial => buttonShowInterstitial;
-            public TextMeshProUGUI TextIsRewardedSupported => textIsRewardedSupported;
-            public TextMeshProUGUI TextLastRewardedStates => textLastRewardedStates;
-            public TextMeshProUGUI TextRewardedPlacement => textRewardedPlacement;
-            public Button ButtonShowRewarded => buttonShowRewarded;
-            public Button ButtonCheckAdBlock => buttonCheckAdBlock;
         }
     }
 }

@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Examples.Starter.Scripts.Playgama;
+using Playgama.Examples.Starter.Scripts.Playgama;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     public class SocialMenu : MenuSystem.Menu
     {
@@ -144,19 +144,8 @@ namespace Examples.Starter.Scripts.Menu
                 Debug.Log($"Rate success: {success}")
             );
         }
-        
-        public override void Open()
-        {
-            base.Open();
-            InitMenu();
-        }
 
-        private void Start()
-        {
-            InitMenu();
-        }
-
-        private void InitMenu()
+        protected override void InitMenu()
         {
             SetTextProperty(menuSettings.TextIsShareSupported, "Is Share Supported", PlaygamaManager.IsShareSupported.ToString());
             SetTextProperty(menuSettings.TextIsJoinCommunitySupported, "Is Join Community Supported", PlaygamaManager.IsJoinCommunitySupported.ToString());
@@ -182,6 +171,23 @@ namespace Examples.Starter.Scripts.Menu
         [Serializable]
         public class MenuSettings
         {
+            public PlaygamaManager PlaygamaManager => playgamaManager;
+            public TextMeshProUGUI TextIsShareSupported => textIsShareSupported;
+            public TextMeshProUGUI TextIsJoinCommunitySupported => textIsJoinCommunitySupported;
+            public Button ButtonShare => buttonShare;
+            public Button ButtonJoinCommunity => buttonJoinCommunity;
+            public TextMeshProUGUI TextIsInviteFriendsSupported => textIsInviteFriendsSupported;
+            public TextMeshProUGUI TextIsCreatePostSupported => textIsCreatePostSupported;
+            public Button ButtonInviteFriends => buttonInviteFriends;
+            public Button ButtonCreatePost => buttonCreatePost;
+            public TextMeshProUGUI TextIsAddToFavoritesSupported => textIsAddToFavoritesSupported;
+            public TextMeshProUGUI TextIsAddToHomeScreenSupported => textIsAddToHomeScreenSupported;
+            public Button ButtonAddToFavorites => buttonAddToFavorites;
+            public Button ButtonAddToHomeScreen => buttonAddToHomeScreen;
+            public TextMeshProUGUI TextIsRateSupported => textIsRateSupported;
+            public TextMeshProUGUI TextIsExternalLinksAllowed => textIsExternalLinksAllowed;
+            public Button ButtonRate => buttonRate;
+            
             [SerializeField] private PlaygamaManager playgamaManager;
             
             [SerializeField] private TextMeshProUGUI textIsShareSupported;
@@ -202,23 +208,6 @@ namespace Examples.Starter.Scripts.Menu
             [SerializeField] private TextMeshProUGUI textIsRateSupported;
             [SerializeField] private TextMeshProUGUI textIsExternalLinksAllowed;
             [SerializeField] private Button buttonRate;
-            
-            public PlaygamaManager PlaygamaManager => playgamaManager;
-            public TextMeshProUGUI TextIsShareSupported => textIsShareSupported;
-            public TextMeshProUGUI TextIsJoinCommunitySupported => textIsJoinCommunitySupported;
-            public Button ButtonShare => buttonShare;
-            public Button ButtonJoinCommunity => buttonJoinCommunity;
-            public TextMeshProUGUI TextIsInviteFriendsSupported => textIsInviteFriendsSupported;
-            public TextMeshProUGUI TextIsCreatePostSupported => textIsCreatePostSupported;
-            public Button ButtonInviteFriends => buttonInviteFriends;
-            public Button ButtonCreatePost => buttonCreatePost;
-            public TextMeshProUGUI TextIsAddToFavoritesSupported => textIsAddToFavoritesSupported;
-            public TextMeshProUGUI TextIsAddToHomeScreenSupported => textIsAddToHomeScreenSupported;
-            public Button ButtonAddToFavorites => buttonAddToFavorites;
-            public Button ButtonAddToHomeScreen => buttonAddToHomeScreen;
-            public TextMeshProUGUI TextIsRateSupported => textIsRateSupported;
-            public TextMeshProUGUI TextIsExternalLinksAllowed => textIsExternalLinksAllowed;
-            public Button ButtonRate => buttonRate;
         }
     }
 }

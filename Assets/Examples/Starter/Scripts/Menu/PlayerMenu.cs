@@ -1,10 +1,10 @@
 using System;
-using Examples.Starter.Scripts.Playgama;
+using Playgama.Examples.Starter.Scripts.Playgama;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     public class PlayerMenu : MenuSystem.Menu
     {
@@ -26,19 +26,8 @@ namespace Examples.Starter.Scripts.Menu
                 }
             });
         }
-        
-        public override void Open()
-        {
-            base.Open();
-            InitMenu();
-        }
 
-        private void Start()
-        {
-            InitMenu();
-        }
-
-        private void InitMenu()
+        protected override void InitMenu()
         {
             SetTextProperty(menuSettings.TextIsAuthSupported, "Is Auth Supported", PlaygamaManager.IsAuthSupported.ToString());
             SetTextProperty(menuSettings.TextIsAuthorized, "Is Authorized", PlaygamaManager.IsAuthorized.ToString());
@@ -61,14 +50,6 @@ namespace Examples.Starter.Scripts.Menu
         [Serializable]
         public class MenuSettings
         {
-            [SerializeField] private PlaygamaManager playgamaManager;
-            [SerializeField] private TextMeshProUGUI textIsAuthSupported;
-            [SerializeField] private TextMeshProUGUI textIsAuthorized;
-            [SerializeField] private TextMeshProUGUI textPlayerId;
-            [SerializeField] private TextMeshProUGUI textPlayerName;
-            [SerializeField] private Button buttonAuthorize;
-            [SerializeField] private RawImage prefabPlayerAvatar;
-            [SerializeField] private RectTransform playerAvatarHolder;
             public PlaygamaManager PlaygamaManager => playgamaManager;
             public TextMeshProUGUI TextIsAuthSupported => textIsAuthSupported;
             public TextMeshProUGUI TextIsAuthorized => textIsAuthorized;
@@ -77,6 +58,15 @@ namespace Examples.Starter.Scripts.Menu
             public Button ButtonAuthorize => buttonAuthorize;
             public RawImage PrefabPlayerAvatar => prefabPlayerAvatar;
             public RectTransform PlayerAvatarHolder => playerAvatarHolder;
+            
+            [SerializeField] private PlaygamaManager playgamaManager;
+            [SerializeField] private TextMeshProUGUI textIsAuthSupported;
+            [SerializeField] private TextMeshProUGUI textIsAuthorized;
+            [SerializeField] private TextMeshProUGUI textPlayerId;
+            [SerializeField] private TextMeshProUGUI textPlayerName;
+            [SerializeField] private Button buttonAuthorize;
+            [SerializeField] private RawImage prefabPlayerAvatar;
+            [SerializeField] private RectTransform playerAvatarHolder;
         }
     }
 }

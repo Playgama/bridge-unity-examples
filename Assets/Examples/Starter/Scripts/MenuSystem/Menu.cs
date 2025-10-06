@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Examples.Starter.Scripts.MenuSystem
+namespace Playgama.Examples.Starter.Scripts.MenuSystem
 {
     public abstract class Menu : MonoBehaviour
     {
@@ -21,6 +21,7 @@ namespace Examples.Starter.Scripts.MenuSystem
         public virtual void Open()
         {
             MenuManager.OpenMenu(this);
+            InitMenu();
         }
         
         public virtual void Close()
@@ -46,12 +47,20 @@ namespace Examples.Starter.Scripts.MenuSystem
         protected virtual void Awake()
         {
         }
+
+        protected virtual void Start()
+        {
+            InitMenu();
+        }
         
         protected virtual void OnDestroy()
         {
             MenuManager = null;
         }
-        
+
+        protected virtual void InitMenu()
+        {
+        }
         protected virtual void SetTextProperty(TextMeshProUGUI text, string label, string value)
         {
             text.text = $"{label}: <color=#D8BBFF>{value}</color>";

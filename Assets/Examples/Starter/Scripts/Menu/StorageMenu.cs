@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Examples.Starter.Scripts.Playgama;
+using Playgama.Examples.Starter.Scripts.Playgama;
 using Playgama.Modules.Storage;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     public class StorageMenu : MenuSystem.Menu
     {
@@ -101,12 +101,7 @@ namespace Examples.Starter.Scripts.Menu
                 SelectedStorageType);
         }
 
-        private void Start()
-        {
-            InitMenu();
-        }
-
-        private void InitMenu()
+        protected override void InitMenu()
         {
             SetTextProperty(menuSettings.TextDefaultStorageType, "Default Storage Type",
                 PlaygamaManager.DefaultStorageType.ToString());
@@ -143,18 +138,6 @@ namespace Examples.Starter.Scripts.Menu
         [Serializable]
         public class MenuSettings
         {
-            [SerializeField] private PlaygamaManager playgamaManager;
-            [SerializeField] private TextMeshProUGUI textDefaultStorageType;
-            [SerializeField] private TextMeshProUGUI textIsLocalStorageSupported;
-            [SerializeField] private TextMeshProUGUI textIsLocalStorageAvailable;
-            [SerializeField] private TextMeshProUGUI textIsPlatformInternalSupported;
-            [SerializeField] private TextMeshProUGUI textIsPlatformInternalAvailable;
-            [SerializeField] private TMP_InputField inputFieldCoinsCount;
-            [SerializeField] private TMP_InputField inputFieldLevelId;
-            [SerializeField] private ToggleGroup toggleGroup;
-            [SerializeField] private Toggle toggleLocalStorageType;
-            [SerializeField] private Toggle togglePlatformInternalStorageType;
-
             public PlaygamaManager PlaygamaManager => playgamaManager;
             public TextMeshProUGUI TextDefaultStorageType => textDefaultStorageType;
             public TextMeshProUGUI TextIsLocalStorageSupported => textIsLocalStorageSupported;
@@ -166,6 +149,18 @@ namespace Examples.Starter.Scripts.Menu
             public ToggleGroup ToggleGroup => toggleGroup;
             public Toggle ToggleLocalStorageType => toggleLocalStorageType;
             public Toggle TogglePlatformInternalStorageType => togglePlatformInternalStorageType;
+            
+            [SerializeField] private PlaygamaManager playgamaManager;
+            [SerializeField] private TextMeshProUGUI textDefaultStorageType;
+            [SerializeField] private TextMeshProUGUI textIsLocalStorageSupported;
+            [SerializeField] private TextMeshProUGUI textIsLocalStorageAvailable;
+            [SerializeField] private TextMeshProUGUI textIsPlatformInternalSupported;
+            [SerializeField] private TextMeshProUGUI textIsPlatformInternalAvailable;
+            [SerializeField] private TMP_InputField inputFieldCoinsCount;
+            [SerializeField] private TMP_InputField inputFieldLevelId;
+            [SerializeField] private ToggleGroup toggleGroup;
+            [SerializeField] private Toggle toggleLocalStorageType;
+            [SerializeField] private Toggle togglePlatformInternalStorageType;
         }
     }
 }

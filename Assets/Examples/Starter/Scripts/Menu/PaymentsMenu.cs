@@ -1,11 +1,11 @@
 using System;
-using Examples.Starter.Scripts.Playgama;
 using Newtonsoft.Json;
+using Playgama.Examples.Starter.Scripts.Playgama;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     public class PaymentsMenu : MenuSystem.Menu
     {
@@ -34,7 +34,7 @@ namespace Examples.Starter.Scripts.Menu
         {
             PlaygamaManager.ConsumePurchase(
                 menuSettings.InputFieldProductIdConsume.text,
-                (success, result) =>
+                (success, _) =>
                 {
                     if (success)
                     {
@@ -79,18 +79,7 @@ namespace Examples.Starter.Scripts.Menu
             );
         }
 
-        public override void Open()
-        {
-            base.Open();
-            InitMenu();
-        }
-
-        private void Start()
-        {
-            InitMenu();
-        }
-
-        private void InitMenu()
+        protected override void InitMenu()
         {
             SetTextProperty(menuSettings.TextIsPaymentsSupported, "Is Payments Supported", PlaygamaManager.IsPaymentsSupported.ToString());
             
@@ -105,15 +94,6 @@ namespace Examples.Starter.Scripts.Menu
         [Serializable]
         public class MenuSettings
         {
-            [SerializeField] private PlaygamaManager playgamaManager;
-            [SerializeField] private TextMeshProUGUI textIsPaymentsSupported;
-            [SerializeField] private TMP_InputField inputFieldProductIdPurchase;
-            [SerializeField] private TMP_InputField inputFieldProductIdConsume;
-            [SerializeField] private Button buttonPurchase;
-            [SerializeField] private Button buttonConsumePurchase;
-            [SerializeField] private Button buttonGetCatalog;
-            [SerializeField] private Button buttonGetPurchases;
-            [SerializeField] private TMP_Text textRequestResult;
             public PlaygamaManager PlaygamaManager => playgamaManager;
             public TextMeshProUGUI TextIsPaymentsSupported => textIsPaymentsSupported;
             public TMP_InputField InputFieldProductIdPurchase => inputFieldProductIdPurchase;
@@ -123,6 +103,16 @@ namespace Examples.Starter.Scripts.Menu
             public Button ButtonGetCatalog => buttonGetCatalog;
             public Button ButtonGetPurchases => buttonGetPurchases;
             public TMP_Text TextRequestResult => textRequestResult;
+            
+            [SerializeField] private PlaygamaManager playgamaManager;
+            [SerializeField] private TextMeshProUGUI textIsPaymentsSupported;
+            [SerializeField] private TMP_InputField inputFieldProductIdPurchase;
+            [SerializeField] private TMP_InputField inputFieldProductIdConsume;
+            [SerializeField] private Button buttonPurchase;
+            [SerializeField] private Button buttonConsumePurchase;
+            [SerializeField] private Button buttonGetCatalog;
+            [SerializeField] private Button buttonGetPurchases;
+            [SerializeField] private TMP_Text textRequestResult;
         }
     }
 }

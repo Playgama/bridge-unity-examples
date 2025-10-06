@@ -1,4 +1,4 @@
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     public class MainMenu : MenuSystem.Menu
     {

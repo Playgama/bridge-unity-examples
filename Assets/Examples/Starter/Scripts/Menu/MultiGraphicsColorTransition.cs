@@ -1,4 +1,4 @@
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     using UnityEngine;
     using UnityEngine.UI;
@@ -22,6 +22,38 @@ namespace Examples.Starter.Scripts.Menu
         private Button _button;
         private Coroutine _currentCoroutine;
 
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (_button.interactable)
+            {
+                SetColor(highlightedColor, normalColor);
+            }
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (_button.interactable)
+            {
+                SetColor(normalColor, highlightedColor);
+            }
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            if (_button.interactable)
+            {
+                SetColor(pressedColor, normalColor);
+            }
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            if (_button.interactable)
+            {
+                SetColor(highlightedColor, normalColor);
+            }
+        }
+        
         private void Awake()
         {
             _button = GetComponent<Button>();
@@ -80,38 +112,6 @@ namespace Examples.Starter.Scripts.Menu
             
             SetBackgroundColorInstant(targetBackgroundColor);
             _currentCoroutine = null;
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            if (_button.interactable)
-            {
-                SetColor(highlightedColor, normalColor);
-            }
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            if (_button.interactable)
-            {
-                SetColor(normalColor, highlightedColor);
-            }
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            if (_button.interactable)
-            {
-                SetColor(pressedColor, normalColor);
-            }
-        }
-
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            if (_button.interactable)
-            {
-                SetColor(highlightedColor, normalColor);
-            }
         }
 
         private void OnEnable()

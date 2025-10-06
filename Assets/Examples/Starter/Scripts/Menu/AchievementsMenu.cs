@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Examples.Starter.Scripts.Playgama;
+using Playgama.Examples.Starter.Scripts.Playgama;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     public class AchievementsMenu : MenuSystem.Menu
     {
@@ -76,12 +76,7 @@ namespace Examples.Starter.Scripts.Menu
             );
         }
 
-        private void Start()
-        {
-            InitMenu();
-        }
-
-        private void InitMenu()
+        protected override void InitMenu()
         {
             SetTextProperty(menuSettings.TextIsAchievementsSupported, "Is Achievements Supported",
                 PlaygamaManager.IsAchievementsSupported.ToString());
@@ -100,16 +95,6 @@ namespace Examples.Starter.Scripts.Menu
         [Serializable]
         public class MenuSettings
         {
-            [SerializeField] private PlaygamaManager playgamaManager;
-            [SerializeField] private TextMeshProUGUI textIsAchievementsSupported;
-            [SerializeField] private TextMeshProUGUI textIsGetListSupported;
-            [SerializeField] private TextMeshProUGUI textIsNativePopupSupported;
-            [SerializeField] private TMP_InputField inputFiledKey;
-            [SerializeField] private TMP_InputField inputFieldName;
-            [SerializeField] private Button buttonUnlock;
-            [SerializeField] private Button buttonGetList;
-            [SerializeField] private Button buttonShowNativePopup;
-
             public PlaygamaManager PlaygamaManager => playgamaManager;
             public TextMeshProUGUI TextIsAchievementsSupported => textIsAchievementsSupported;
             public TextMeshProUGUI TextIsGetListSupported => textIsGetListSupported;
@@ -119,6 +104,16 @@ namespace Examples.Starter.Scripts.Menu
             public Button ButtonUnlock => buttonUnlock;
             public Button ButtonGetList => buttonGetList;
             public Button ButtonShowNativePopup => buttonShowNativePopup;
+            
+            [SerializeField] private PlaygamaManager playgamaManager;
+            [SerializeField] private TextMeshProUGUI textIsAchievementsSupported;
+            [SerializeField] private TextMeshProUGUI textIsGetListSupported;
+            [SerializeField] private TextMeshProUGUI textIsNativePopupSupported;
+            [SerializeField] private TMP_InputField inputFiledKey;
+            [SerializeField] private TMP_InputField inputFieldName;
+            [SerializeField] private Button buttonUnlock;
+            [SerializeField] private Button buttonGetList;
+            [SerializeField] private Button buttonShowNativePopup;
         }
     }
 }

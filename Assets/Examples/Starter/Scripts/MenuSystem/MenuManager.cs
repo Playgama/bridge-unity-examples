@@ -1,12 +1,21 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Examples.Starter.Scripts.MenuSystem
+namespace Playgama.Examples.Starter.Scripts.MenuSystem
 {
     public class MenuManager : MonoBehaviour
     {
         [SerializeField] private Transform menuHolder;
+
+        public void OpenMenu(Menu menu)
+        {
+            menu.Activate();
+            menu.SetAsLastSibling();
+        }
+
+        public void CloseMenu(Menu menu)
+        {
+            menu.Deactivate();
+        }
 
         private void Awake()
         {
@@ -14,17 +23,6 @@ namespace Examples.Starter.Scripts.MenuSystem
             {
                 menu.Register(this);
             }
-        }
-        
-        public void OpenMenu(Menu menu)
-        {
-            menu.Activate();
-            menu.SetAsLastSibling();
-        }
-        
-        public void CloseMenu(Menu menu)
-        {
-            menu.Deactivate();
         }
     }
 }

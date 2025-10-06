@@ -1,15 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using Examples.Starter.Scripts.Playgama;
 using Newtonsoft.Json;
+using Playgama.Examples.Starter.Scripts.Playgama;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Examples.Starter.Scripts.Menu
+namespace Playgama.Examples.Starter.Scripts.Menu
 {
     public class PlatformMenu : MenuSystem.Menu
     {
@@ -57,15 +55,8 @@ namespace Examples.Starter.Scripts.Menu
             PlaygamaManager.GetAllGames((success, games) =>
             {
                 Debug.Log($"Get All Games Completed, Success: {success}");
-                
-                if (success)
-                {
-                    menuSettings.TextRequestResult.text = $"Request Result: \n {JsonConvert.SerializeObject(games, Formatting.Indented)}";
-                }
-                else
-                {
-                    menuSettings.TextRequestResult.text = "Request Result: Failed";
-                }
+
+                menuSettings.TextRequestResult.text = success ? $"Request Result: \n {JsonConvert.SerializeObject(games, Formatting.Indented)}" : "Request Result: Failed";
             });
         }
 
@@ -95,12 +86,6 @@ namespace Examples.Starter.Scripts.Menu
                 }
             });
         }
-        
-        public override void Open()
-        {
-            base.Open();
-            InitMenu();
-        }
 
         protected override void Awake()
         {
@@ -119,11 +104,6 @@ namespace Examples.Starter.Scripts.Menu
             SetTextProperty(menuSettings.TextIsAudioEnabled, "Is Audio Enabled", isAudioEnabled.ToString() );
         }
 
-        private void Start()
-        {
-            InitMenu();
-        }
-
         protected override void OnDestroy()
         {
             PlaygamaManager.AudioStateChanged -= OnAudioStateChanged;
@@ -131,7 +111,7 @@ namespace Examples.Starter.Scripts.Menu
             base.OnDestroy();
         }
 
-        private void InitMenu()
+        protected override void InitMenu()
         {
             SetTextProperty(menuSettings.TextPlatformId, "Platform Id", PlaygamaManager.PlatformId);
             SetTextProperty(menuSettings.TextLanguage, "Language", PlaygamaManager.Language);
@@ -143,11 +123,6 @@ namespace Examples.Starter.Scripts.Menu
             
             menuSettings.ButtonGetAllGames.interactable = PlaygamaManager.IsGetAllGamesSupported;
             menuSettings.ButtonGetGameById.interactable = PlaygamaManager.IsGetGameByIdSupported;
-        }
-        
-        private void SetTextProperty(TextMeshProUGUI text, string name, string value)
-        {
-            text.text = $"{name}: <color=#D8BBFF>{value}</color>";
         }
 
         [Serializable]
