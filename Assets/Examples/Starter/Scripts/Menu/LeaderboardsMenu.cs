@@ -16,12 +16,6 @@ namespace Examples.Starter.Scripts.Menu
 
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
 
-        public override void Open()
-        {
-            base.Open();
-            InitMenu();
-        }
-
         public void SetScore()
         {
             if (string.IsNullOrEmpty(menuSettings.InputFieldScore.text) ||
@@ -67,6 +61,12 @@ namespace Examples.Starter.Scripts.Menu
             });
         }
 
+        public override void Open()
+        {
+            base.Open();
+            InitMenu();
+        }
+
         private void Start()
         {
             InitMenu();
@@ -81,11 +81,6 @@ namespace Examples.Starter.Scripts.Menu
 
             menuSettings.InputFieldLeaderboardIdGetEntries.interactable = PlaygamaManager.LeaderboardType == LeaderboardType.InGame;
             menuSettings.ButtonGetEntries.interactable = PlaygamaManager.LeaderboardType == LeaderboardType.InGame;
-        }
-        
-        private void SetTextProperty(TextMeshProUGUI text, string name, string value)
-        {
-            text.text = $"{name}: <color=#D8BBFF>{value}</color>";
         }
 
         [Serializable]

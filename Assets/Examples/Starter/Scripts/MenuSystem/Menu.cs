@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Examples.Starter.Scripts.MenuSystem
@@ -49,6 +50,11 @@ namespace Examples.Starter.Scripts.MenuSystem
         protected virtual void OnDestroy()
         {
             MenuManager = null;
+        }
+        
+        protected virtual void SetTextProperty(TextMeshProUGUI text, string label, string value)
+        {
+            text.text = $"{label}: <color=#D8BBFF>{value}</color>";
         }
     }
 }

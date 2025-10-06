@@ -3,14 +3,15 @@ using Examples.Starter.Scripts.Playgama;
 using Playgama.Modules.Game;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Examples.Starter.Scripts.Menu
 {
     public class GameMenu : MenuSystem.Menu
     {
-        [SerializeField] private MenuSettings settings;
+        [SerializeField] private MenuSettings menuSettings;
         private readonly StateHistory<VisibilityState> _visibilityStates = new StateHistory<VisibilityState>(3);
-        private PlaygamaManager PlaygamaManager => settings.PlaygamaManager;
+        private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
         protected override void Awake()
         {
             base.Awake();
@@ -30,30 +31,25 @@ namespace Examples.Starter.Scripts.Menu
 
         private void InitMenu()
         {
-            SetTextProperty(settings.PropertyCurrentVisibleState, "Current Visibility State", PlaygamaManager.CurrentVisibilityState.ToString());
-            SetTextProperty(settings.PropertyLastVisibleState, "Last Visibility State", PlaygamaManager.CurrentVisibilityState.ToString());
-        }
-
-        private void SetTextProperty(TextMeshProUGUI text, string name, string value)
-        {
-            text.text = $"{name}: <color=#D8BBFF>{value}</color>";
+            SetTextProperty(menuSettings.TextCurrentVisibleState, "Current Visibility State", PlaygamaManager.CurrentVisibilityState.ToString());
+            SetTextProperty(menuSettings.TextLastVisibleState, "Last Visibility State", _visibilityStates.ToString());
         }
 
         private void OnGameVisibilityStateChanged(VisibilityState state)
         {
             _visibilityStates.Enqueue(state);
-            InitMenu();
+            SetTextProperty(menuSettings.TextLastVisibleState, "Last Visibility State", _visibilityStates.ToString());
         }
 
         [Serializable]
         public class MenuSettings
         {
             [SerializeField] private PlaygamaManager playgamaManager;
-            [SerializeField] private TextMeshProUGUI propertyCurrentVisibleState;
-            [SerializeField] private TextMeshProUGUI propertyLastVisibleState;
+            [SerializeField] private TextMeshProUGUI textCurrentVisibleState;
+            [SerializeField] private TextMeshProUGUI textLastVisibleState;
             public PlaygamaManager PlaygamaManager => playgamaManager;
-            public TextMeshProUGUI PropertyCurrentVisibleState => propertyCurrentVisibleState;
-            public TextMeshProUGUI PropertyLastVisibleState => propertyLastVisibleState;
+            public TextMeshProUGUI TextCurrentVisibleState => textCurrentVisibleState;
+            public TextMeshProUGUI TextLastVisibleState => textLastVisibleState;
         }
     }
 }

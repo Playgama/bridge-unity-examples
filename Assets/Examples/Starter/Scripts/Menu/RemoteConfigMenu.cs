@@ -41,25 +41,20 @@ namespace Examples.Starter.Scripts.Menu
 
         private void InitMenu()
         {
-            SetTextProperty(menuSettings.PropertyIsRemoteConfigSupported, "Is Remote Config Supported", PlaygamaManager.IsRemoteConfigSupported.ToString());
+            SetTextProperty(menuSettings.TextIsRemoteConfigSupported, "Is Remote Config Supported", PlaygamaManager.IsRemoteConfigSupported.ToString());
             menuSettings.ButtonGetRemoteConfig.interactable = PlaygamaManager.IsRemoteConfigSupported;
-        }
-
-        private void SetTextProperty(TextMeshProUGUI text, string propertyName, string propertyValue)
-        {
-            text.text = $"{propertyName}: <color=#D8BBFF>{propertyValue}</color>";
         }
 
         [Serializable]
         public class MenuSettings
         {
             [SerializeField] private PlaygamaManager playgamaManager;
-            [SerializeField] private TextMeshProUGUI propertyIsRemoteConfigSupported;
+            [SerializeField] private TextMeshProUGUI textIsRemoteConfigSupported;
             [SerializeField] private Button buttonGetRemoteConfig;
             [SerializeField] private TextMeshProUGUI textRemoteConfigResult;
 
             public PlaygamaManager PlaygamaManager => playgamaManager;
-            public TextMeshProUGUI PropertyIsRemoteConfigSupported => propertyIsRemoteConfigSupported;
+            public TextMeshProUGUI TextIsRemoteConfigSupported => textIsRemoteConfigSupported;
             public Button ButtonGetRemoteConfig => buttonGetRemoteConfig;
             public TextMeshProUGUI TextRemoteConfigResult => textRemoteConfigResult;
         }

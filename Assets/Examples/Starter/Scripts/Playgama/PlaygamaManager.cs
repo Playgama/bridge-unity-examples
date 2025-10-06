@@ -112,7 +112,6 @@ namespace Examples.Starter.Scripts.Playgama
         public event Action<BannerState> AdvertisementBannerStateChanged;
         public event Action<InterstitialState> AdvertisementInterstitialStateChanged;
         public event Action<RewardedState> AdvertisementRewardedStateChanged;
-
         public event Action<bool> AudioStateChanged;
         public event Action<bool> PauseStateChanged;
 

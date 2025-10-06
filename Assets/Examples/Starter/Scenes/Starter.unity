@@ -1031,11 +1031,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSettings:
     playgamaManager: {fileID: 1615774789}
-    propertyDefaultStorageType: {fileID: 96176598}
-    propertyIsLocalStorageSupported: {fileID: 771014581}
-    propertyIsLocalStorageAvailable: {fileID: 2142037182}
-    propertyIsPlatformInternalSupported: {fileID: 1073989651}
-    propertyIsPlatformInternalAvailable: {fileID: 1930306694}
+    textDefaultStorageType: {fileID: 96176598}
+    textIsLocalStorageSupported: {fileID: 771014581}
+    textIsLocalStorageAvailable: {fileID: 2142037182}
+    textIsPlatformInternalSupported: {fileID: 1073989651}
+    textIsPlatformInternalAvailable: {fileID: 1930306694}
     inputFieldCoinsCount: {fileID: 1833462439}
     inputFieldLevelId: {fileID: 2023842565}
     toggleGroup: {fileID: 682812575}
@@ -1155,7 +1155,7 @@ GameObject:
   - component: {fileID: 96176599}
   - component: {fileID: 96176598}
   m_Layer: 5
-  m_Name: PropertyDefaultStorageType
+  m_Name: TextDefaultStorageType
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1972,10 +1972,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSettings:
     playgamaManager: {fileID: 1615774789}
-    propertyIsAuthSupported: {fileID: 144069599}
-    propertyIsAuthorized: {fileID: 749134372}
-    propertyPlayerId: {fileID: 929915246}
-    propertyPlayerName: {fileID: 492931135}
+    textIsAuthSupported: {fileID: 144069599}
+    textIsAuthorized: {fileID: 749134372}
+    textPlayerId: {fileID: 929915246}
+    textPlayerName: {fileID: 492931135}
     buttonAuthorize: {fileID: 1869836282}
     prefabPlayerAvatar: {fileID: 3656282825067761235, guid: 857502e7ed395094aa4adb0b567210e7, type: 3}
     playerAvatarHolder: {fileID: 1618965991}
@@ -2029,7 +2029,7 @@ GameObject:
   - component: {fileID: 144069600}
   - component: {fileID: 144069599}
   m_Layer: 5
-  m_Name: PropertyIsAuthSupported
+  m_Name: TextIsAuthSupported
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2907,10 +2907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45639bd48ae44a568d51cd4140bc8d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings:
+  menuSettings:
     playgamaManager: {fileID: 1615774789}
-    propertyCurrentVisibleState: {fileID: 749905825}
-    propertyLastVisibleState: {fileID: 840208321}
+    textCurrentVisibleState: {fileID: 749905825}
+    textLastVisibleState: {fileID: 840208321}
 --- !u!114 &185783441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6276,9 +6276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf56e65cad2948cf8869c222c87d3e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings:
+  menuSettings:
     playgamaManager: {fileID: 1615774789}
-    textPropertyDevice: {fileID: 800812391}
+    textDeviceType: {fileID: 800812391}
 --- !u!1 &412555838
 GameObject:
   m_ObjectHideFlags: 0
@@ -6418,7 +6418,7 @@ GameObject:
   - component: {fileID: 416217140}
   - component: {fileID: 416217139}
   m_Layer: 5
-  m_Name: PropertyIsRemoteConfigSupported
+  m_Name: TextIsRemoteConfigSupported
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8076,7 +8076,7 @@ GameObject:
   - component: {fileID: 492931136}
   - component: {fileID: 492931135}
   m_Layer: 5
-  m_Name: PropertyIPlayerName
+  m_Name: TextPlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13549,7 +13549,7 @@ GameObject:
   - component: {fileID: 749134373}
   - component: {fileID: 749134372}
   m_Layer: 5
-  m_Name: PropertyIsAuthorized
+  m_Name: TextIsAuthorized
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13685,7 +13685,7 @@ GameObject:
   - component: {fileID: 749905826}
   - component: {fileID: 749905825}
   m_Layer: 5
-  m_Name: PropertyCurrentVisibilityState
+  m_Name: TextCurrentVisibilityState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14154,7 +14154,7 @@ GameObject:
   - component: {fileID: 771014582}
   - component: {fileID: 771014581}
   m_Layer: 5
-  m_Name: PropertyIsLocalStorageSupported
+  m_Name: TextIsLocalStorageSupported
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14781,7 +14781,7 @@ GameObject:
   - component: {fileID: 800812392}
   - component: {fileID: 800812391}
   m_Layer: 5
-  m_Name: PropertyDeviceType
+  m_Name: TextDeviceType
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15563,9 +15563,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSettings:
     playgamaManager: {fileID: 1615774789}
-    propertyIsAchievementsSupported: {fileID: 1607944358}
-    propertyIsGetListSupported: {fileID: 1593803633}
-    propertyIsNativePopupSupported: {fileID: 2080237556}
+    textIsAchievementsSupported: {fileID: 1607944358}
+    textIsGetListSupported: {fileID: 1593803633}
+    textIsNativePopupSupported: {fileID: 2080237556}
     inputFiledKey: {fileID: 824574463}
     inputFieldName: {fileID: 114586147}
     buttonUnlock: {fileID: 1259084003}
@@ -15881,7 +15881,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get Servier Time
+  m_text: Get Server Time
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ede91e6c43d35a042ac2d8c6e98aad05, type: 2}
   m_sharedMaterial: {fileID: 6684492637609059314, guid: ede91e6c43d35a042ac2d8c6e98aad05, type: 2}
@@ -16164,7 +16164,7 @@ GameObject:
   - component: {fileID: 840208322}
   - component: {fileID: 840208321}
   m_Layer: 5
-  m_Name: PropertyLastVisibilityState
+  m_Name: TextLastVisibilityState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17848,7 +17848,7 @@ GameObject:
   - component: {fileID: 928147678}
   - component: {fileID: 928147677}
   m_Layer: 5
-  m_Name: PropertyIsPlayerAvatar
+  m_Name: TextPlayerAvatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17984,7 +17984,7 @@ GameObject:
   - component: {fileID: 929915247}
   - component: {fileID: 929915246}
   m_Layer: 5
-  m_Name: PropertyPlayerId
+  m_Name: TextPlayerId
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21442,7 +21442,7 @@ GameObject:
   - component: {fileID: 1073989652}
   - component: {fileID: 1073989651}
   m_Layer: 5
-  m_Name: PropertyIsPlatformInternalSupported
+  m_Name: TextIsPlatformInternalSupported
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24073,7 +24073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSettings:
     playgamaManager: {fileID: 1615774789}
-    propertyIsRemoteConfigSupported: {fileID: 416217139}
+    textIsRemoteConfigSupported: {fileID: 416217139}
     buttonGetRemoteConfig: {fileID: 2053755129}
     textRemoteConfigResult: {fileID: 971099067}
 --- !u!1 &1210753120
@@ -30767,7 +30767,7 @@ GameObject:
   - component: {fileID: 1593803634}
   - component: {fileID: 1593803633}
   m_Layer: 5
-  m_Name: PropertyIsGetListSupported
+  m_Name: TextIsGetListSupported
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31039,7 +31039,7 @@ GameObject:
   - component: {fileID: 1607944359}
   - component: {fileID: 1607944358}
   m_Layer: 5
-  m_Name: PropertyIsAchievementsSupported
+  m_Name: TextIsAchievementsSupported
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31830,17 +31830,17 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 762855646}
+  - {fileID: 1927912910}
   - {fileID: 396770852}
   - {fileID: 185783439}
   - {fileID: 85306770}
-  - {fileID: 140899792}
-  - {fileID: 1208214697}
-  - {fileID: 823965662}
-  - {fileID: 330798261}
-  - {fileID: 1502355299}
   - {fileID: 574102115}
+  - {fileID: 140899792}
   - {fileID: 258407288}
-  - {fileID: 1927912910}
+  - {fileID: 1502355299}
+  - {fileID: 330798261}
+  - {fileID: 823965662}
+  - {fileID: 1208214697}
   - {fileID: 1542801853}
   m_Father: {fileID: 1871432586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35932,7 +35932,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1869836283}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 140899793}
+        m_TargetAssemblyTypeName: Examples.Starter.Scripts.Menu.PlayerMenu, Assembly-CSharp
+        m_MethodName: Authorize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1869836283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36433,7 +36445,7 @@ GameObject:
   - component: {fileID: 1930306695}
   - component: {fileID: 1930306694}
   m_Layer: 5
-  m_Name: PropertyIsPlatformInternalAvailable
+  m_Name: TextIsPlatformInternalAvailable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39429,7 +39441,7 @@ GameObject:
   - component: {fileID: 2080237557}
   - component: {fileID: 2080237556}
   m_Layer: 5
-  m_Name: PropertyIsNativePopupSupported
+  m_Name: TextIsNativePopupSupported
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40770,7 +40782,7 @@ GameObject:
   - component: {fileID: 2142037183}
   - component: {fileID: 2142037182}
   m_Layer: 5
-  m_Name: PropertyIsLocalStorageAvailable
+  m_Name: TextIsLocalStorageAvailable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

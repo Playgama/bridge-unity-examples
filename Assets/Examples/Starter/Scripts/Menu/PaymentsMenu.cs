@@ -10,35 +10,8 @@ namespace Examples.Starter.Scripts.Menu
     public class PaymentsMenu : MenuSystem.Menu
     {
         [SerializeField] private MenuSettings menuSettings;
+
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
-
-        public override void Open()
-        {
-            base.Open();
-            InitMenu();
-        }
-
-        private void Start()
-        {
-            InitMenu();
-        }
-
-        private void InitMenu()
-        {
-            SetTextProperty(menuSettings.TextIsPaymentsSupported, "Is Payments Supported", PlaygamaManager.IsPaymentsSupported.ToString());
-            
-            menuSettings.InputFieldProductIdPurchase.interactable = PlaygamaManager.IsPaymentsSupported;
-            menuSettings.InputFieldProductIdConsume.interactable = PlaygamaManager.IsPaymentsSupported;
-            menuSettings.ButtonPurchase.interactable = PlaygamaManager.IsPaymentsSupported;
-            menuSettings.ButtonConsumePurchase.interactable = PlaygamaManager.IsPaymentsSupported;
-            menuSettings.ButtonGetCatalog.interactable = PlaygamaManager.IsPaymentsSupported;
-            menuSettings.ButtonGetPurchases.interactable = PlaygamaManager.IsPaymentsSupported;
-        }
-        
-        private void SetTextProperty(TextMeshProUGUI text, string name, string value)
-        {
-            text.text = $"{name}: <color=#D8BBFF>{value}</color>";
-        }
 
         public void Purchase()
         {
@@ -104,6 +77,29 @@ namespace Examples.Starter.Scripts.Menu
                     }
                 }
             );
+        }
+
+        public override void Open()
+        {
+            base.Open();
+            InitMenu();
+        }
+
+        private void Start()
+        {
+            InitMenu();
+        }
+
+        private void InitMenu()
+        {
+            SetTextProperty(menuSettings.TextIsPaymentsSupported, "Is Payments Supported", PlaygamaManager.IsPaymentsSupported.ToString());
+            
+            menuSettings.InputFieldProductIdPurchase.interactable = PlaygamaManager.IsPaymentsSupported;
+            menuSettings.InputFieldProductIdConsume.interactable = PlaygamaManager.IsPaymentsSupported;
+            menuSettings.ButtonPurchase.interactable = PlaygamaManager.IsPaymentsSupported;
+            menuSettings.ButtonConsumePurchase.interactable = PlaygamaManager.IsPaymentsSupported;
+            menuSettings.ButtonGetCatalog.interactable = PlaygamaManager.IsPaymentsSupported;
+            menuSettings.ButtonGetPurchases.interactable = PlaygamaManager.IsPaymentsSupported;
         }
 
         [Serializable]

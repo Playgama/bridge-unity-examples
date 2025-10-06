@@ -71,7 +71,6 @@ namespace Examples.Starter.Scripts.Menu
             base.OnDestroy();
         }
 
-
         private void InitMenu()
         {
             SetTextProperty(menuSettings.TextIsBannerSupported, "Is Banner Supported", PlaygamaManager.IsBannerSupported.ToString());
@@ -88,11 +87,6 @@ namespace Examples.Starter.Scripts.Menu
             SetTextProperty(menuSettings.TextLastRewardedStates, "Last Rewarded States", _rewardedStates.ToString());
             SetTextProperty(menuSettings.TextRewardedPlacement, "Rewarded Placement", PlaygamaManager.RewardedPlacement ?? "<null>");
             menuSettings.ButtonShowRewarded.interactable = PlaygamaManager.IsRewardedSupported;
-        }
-        
-        private void SetTextProperty(TextMeshProUGUI text, string name, string value)
-        {
-            text.text = $"{name}: <color=#D8BBFF>{value}</color>";
         }
 
         private void PlaygamaManagerOnAdvertisementBannerStateChanged(BannerState state)

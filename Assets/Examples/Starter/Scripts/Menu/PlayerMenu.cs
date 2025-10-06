@@ -18,6 +18,7 @@ namespace Examples.Starter.Scripts.Menu
                 if (success)
                 {
                     Debug.Log("Player successfully authorized");
+                    InitMenu();
                 }
                 else
                 {
@@ -39,10 +40,10 @@ namespace Examples.Starter.Scripts.Menu
 
         private void InitMenu()
         {
-            SetTextProperty(menuSettings.PropertyIsAuthSupported, "Is Auth Supported", PlaygamaManager.IsAuthSupported.ToString());
-            SetTextProperty(menuSettings.PropertyIsAuthorized, "Is Authorized", PlaygamaManager.IsAuthorized.ToString());
-            SetTextProperty(menuSettings.PropertyPlayerId, "Player ID", PlaygamaManager.PlayerId ?? "<null>");
-            SetTextProperty(menuSettings.PropertyPlayerName, "Player Name", PlaygamaManager.PlayerName ?? "<null>");
+            SetTextProperty(menuSettings.TextIsAuthSupported, "Is Auth Supported", PlaygamaManager.IsAuthSupported.ToString());
+            SetTextProperty(menuSettings.TextIsAuthorized, "Is Authorized", PlaygamaManager.IsAuthorized.ToString());
+            SetTextProperty(menuSettings.TextPlayerId, "Player ID", PlaygamaManager.PlayerId ?? "<null>");
+            SetTextProperty(menuSettings.TextPlayerName, "Player Name", PlaygamaManager.PlayerName ?? "<null>");
             
             menuSettings.ButtonAuthorize.interactable = PlaygamaManager.IsAuthSupported;
             
@@ -56,28 +57,23 @@ namespace Examples.Starter.Scripts.Menu
                 menuSettings.PlayerAvatarHolder.gameObject.SetActive(menuSettings.PlayerAvatarHolder.childCount > 0);
             }));
         }
-        
-        private void SetTextProperty(TextMeshProUGUI text, string name, string value)
-        {
-            text.text = $"{name}: <color=#D8BBFF>{value}</color>";
-        }
 
         [Serializable]
         public class MenuSettings
         {
             [SerializeField] private PlaygamaManager playgamaManager;
-            [SerializeField] private TextMeshProUGUI propertyIsAuthSupported;
-            [SerializeField] private TextMeshProUGUI propertyIsAuthorized;
-            [SerializeField] private TextMeshProUGUI propertyPlayerId;
-            [SerializeField] private TextMeshProUGUI propertyPlayerName;
+            [SerializeField] private TextMeshProUGUI textIsAuthSupported;
+            [SerializeField] private TextMeshProUGUI textIsAuthorized;
+            [SerializeField] private TextMeshProUGUI textPlayerId;
+            [SerializeField] private TextMeshProUGUI textPlayerName;
             [SerializeField] private Button buttonAuthorize;
             [SerializeField] private RawImage prefabPlayerAvatar;
             [SerializeField] private RectTransform playerAvatarHolder;
             public PlaygamaManager PlaygamaManager => playgamaManager;
-            public TextMeshProUGUI PropertyIsAuthSupported => propertyIsAuthSupported;
-            public TextMeshProUGUI PropertyIsAuthorized => propertyIsAuthorized;
-            public TextMeshProUGUI PropertyPlayerId => propertyPlayerId;
-            public TextMeshProUGUI PropertyPlayerName => propertyPlayerName;
+            public TextMeshProUGUI TextIsAuthSupported => textIsAuthSupported;
+            public TextMeshProUGUI TextIsAuthorized => textIsAuthorized;
+            public TextMeshProUGUI TextPlayerId => textPlayerId;
+            public TextMeshProUGUI TextPlayerName => textPlayerName;
             public Button ButtonAuthorize => buttonAuthorize;
             public RawImage PrefabPlayerAvatar => prefabPlayerAvatar;
             public RectTransform PlayerAvatarHolder => playerAvatarHolder;

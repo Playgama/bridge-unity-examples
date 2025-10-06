@@ -101,19 +101,22 @@ namespace Examples.Starter.Scripts.Menu
                 SelectedStorageType);
         }
 
-        protected override void Awake()
+        private void Start()
         {
-            base.Awake();
+            InitMenu();
+        }
 
-            SetTextProperty(menuSettings.PropertyDefaultStorageType, "Default Storage Type",
+        private void InitMenu()
+        {
+            SetTextProperty(menuSettings.TextDefaultStorageType, "Default Storage Type",
                 PlaygamaManager.DefaultStorageType.ToString());
-            SetTextProperty(menuSettings.PropertyIsLocalStorageSupported, "Is Local Storage Supported",
+            SetTextProperty(menuSettings.TextIsLocalStorageSupported, "Is Local Storage Supported",
                 PlaygamaManager.IsLocalStorageSupported.ToString());
-            SetTextProperty(menuSettings.PropertyIsLocalStorageAvailable, "Is Local Storage Available",
+            SetTextProperty(menuSettings.TextIsLocalStorageAvailable, "Is Local Storage Available",
                 PlaygamaManager.IsLocalStorageAvailable.ToString());
-            SetTextProperty(menuSettings.PropertyIsPlatformInternalSupported, "Is Platform Internal Supported",
+            SetTextProperty(menuSettings.TextIsPlatformInternalSupported, "Is Platform Internal Supported",
                 PlaygamaManager.IsPlatformInternalSupported.ToString());
-            SetTextProperty(menuSettings.PropertyIsPlatformInternalAvailable, "Is Platform Internal Available",
+            SetTextProperty(menuSettings.TextIsPlatformInternalAvailable, "Is Platform Internal Available",
                 PlaygamaManager.IsPlatformInternalAvailable.ToString());
 
             menuSettings.ToggleLocalStorageType.interactable =
@@ -137,20 +140,15 @@ namespace Examples.Starter.Scripts.Menu
             }
         }
 
-        private void SetTextProperty(TextMeshProUGUI text, string name, string value)
-        {
-            text.text = $"{name}: <color=#D8BBFF>{value}</color>";
-        }
-
         [Serializable]
         public class MenuSettings
         {
             [SerializeField] private PlaygamaManager playgamaManager;
-            [SerializeField] private TextMeshProUGUI propertyDefaultStorageType;
-            [SerializeField] private TextMeshProUGUI propertyIsLocalStorageSupported;
-            [SerializeField] private TextMeshProUGUI propertyIsLocalStorageAvailable;
-            [SerializeField] private TextMeshProUGUI propertyIsPlatformInternalSupported;
-            [SerializeField] private TextMeshProUGUI propertyIsPlatformInternalAvailable;
+            [SerializeField] private TextMeshProUGUI textDefaultStorageType;
+            [SerializeField] private TextMeshProUGUI textIsLocalStorageSupported;
+            [SerializeField] private TextMeshProUGUI textIsLocalStorageAvailable;
+            [SerializeField] private TextMeshProUGUI textIsPlatformInternalSupported;
+            [SerializeField] private TextMeshProUGUI textIsPlatformInternalAvailable;
             [SerializeField] private TMP_InputField inputFieldCoinsCount;
             [SerializeField] private TMP_InputField inputFieldLevelId;
             [SerializeField] private ToggleGroup toggleGroup;
@@ -158,11 +156,11 @@ namespace Examples.Starter.Scripts.Menu
             [SerializeField] private Toggle togglePlatformInternalStorageType;
 
             public PlaygamaManager PlaygamaManager => playgamaManager;
-            public TextMeshProUGUI PropertyDefaultStorageType => propertyDefaultStorageType;
-            public TextMeshProUGUI PropertyIsLocalStorageSupported => propertyIsLocalStorageSupported;
-            public TextMeshProUGUI PropertyIsLocalStorageAvailable => propertyIsLocalStorageAvailable;
-            public TextMeshProUGUI PropertyIsPlatformInternalSupported => propertyIsPlatformInternalSupported;
-            public TextMeshProUGUI PropertyIsPlatformInternalAvailable => propertyIsPlatformInternalAvailable;
+            public TextMeshProUGUI TextDefaultStorageType => textDefaultStorageType;
+            public TextMeshProUGUI TextIsLocalStorageSupported => textIsLocalStorageSupported;
+            public TextMeshProUGUI TextIsLocalStorageAvailable => textIsLocalStorageAvailable;
+            public TextMeshProUGUI TextIsPlatformInternalSupported => textIsPlatformInternalSupported;
+            public TextMeshProUGUI TextIsPlatformInternalAvailable => textIsPlatformInternalAvailable;
             public TMP_InputField InputFieldCoinsCount => inputFieldCoinsCount;
             public TMP_InputField InputFieldLevelId => inputFieldLevelId;
             public ToggleGroup ToggleGroup => toggleGroup;

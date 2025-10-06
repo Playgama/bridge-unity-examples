@@ -71,6 +71,12 @@ namespace Examples.Starter.Scripts.Menu
 
         public void GetGameById()
         {
+            if (string.IsNullOrEmpty(menuSettings.InputFieldGameId.text))
+            {
+                Debug.LogWarning("Game ID is required");
+                return;           
+            }
+            
             var options = new Dictionary<string, object>()
             {
                 { "gameId", menuSettings.InputFieldGameId.text }
@@ -134,6 +140,9 @@ namespace Examples.Starter.Scripts.Menu
             SetTextProperty(menuSettings.TextIsAudioEnabled, "Is Audio Enabled", PlaygamaManager.IsAudioEnabled.ToString());
             SetTextProperty(menuSettings.TextIsGetAllGamesSupported, "Is get All Games supported", PlaygamaManager.IsGetAllGamesSupported.ToString());
             SetTextProperty(menuSettings.TextIsGetGameByIdSupported, "Is get Game by ID supported", PlaygamaManager.IsGetGameByIdSupported.ToString());
+            
+            menuSettings.ButtonGetAllGames.interactable = PlaygamaManager.IsGetAllGamesSupported;
+            menuSettings.ButtonGetGameById.interactable = PlaygamaManager.IsGetGameByIdSupported;
         }
         
         private void SetTextProperty(TextMeshProUGUI text, string name, string value)

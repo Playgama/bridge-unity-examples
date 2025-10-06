@@ -178,11 +178,6 @@ namespace Examples.Starter.Scripts.Menu
             menuSettings.ButtonRate.interactable = PlaygamaManager.IsRateSupported;
             
         }
-
-        private void SetTextProperty(TextMeshProUGUI text, string name, string value)
-        {
-            text.text = $"{name}: <color=#D8BBFF>{value}</color>";
-        }
         
         [Serializable]
         public class MenuSettings
