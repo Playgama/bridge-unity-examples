@@ -41,8 +41,8 @@ namespace Examples.Starter.Scripts.Menu
         {
             SetTextProperty(menuSettings.PropertyIsAuthSupported, "Is Auth Supported", PlaygamaManager.IsAuthSupported.ToString());
             SetTextProperty(menuSettings.PropertyIsAuthorized, "Is Authorized", PlaygamaManager.IsAuthorized.ToString());
-            SetTextProperty(menuSettings.PropertyPlayerId, "Player ID", PlaygamaManager.PlayerId);
-            SetTextProperty(menuSettings.PropertyPlayerName, "Player Name", PlaygamaManager.PlayerName);
+            SetTextProperty(menuSettings.PropertyPlayerId, "Player ID", PlaygamaManager.PlayerId ?? "<null>");
+            SetTextProperty(menuSettings.PropertyPlayerName, "Player Name", PlaygamaManager.PlayerName ?? "<null>");
             
             menuSettings.ButtonAuthorize.interactable = PlaygamaManager.IsAuthSupported;
             

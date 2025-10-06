@@ -61,7 +61,7 @@ namespace Examples.Starter.Scripts.Menu
         {
             PlaygamaManager.ConsumePurchase(
                 menuSettings.InputFieldProductIdConsume.text,
-                (success) =>
+                (success, result) =>
                 {
                     if (success)
                     {
