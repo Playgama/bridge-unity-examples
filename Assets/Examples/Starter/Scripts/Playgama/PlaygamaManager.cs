@@ -450,7 +450,5 @@ namespace Playgama.Examples.Starter.Scripts.Playgama
         }        
 
         #endregion
-
-
     }
 }
