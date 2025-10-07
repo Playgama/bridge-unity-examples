@@ -1,6 +1,8 @@
 using System;
 using Playgama.Examples.Starter.Scripts.Playgama;
+#if UNITY_WEBGL
 using Playgama.Modules.Advertisement;
+#endif
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,17 +12,13 @@ namespace Playgama.Examples.Starter.Scripts.Menu
     public class AdvertisementMenu : MenuSystem.Menu
     {
         [SerializeField] private MenuSettings menuSettings;
+#if UNITY_WEBGL
         private readonly StateHistory<BannerState> _bannerStates = new StateHistory<BannerState>(3);
         private readonly StateHistory<InterstitialState> _interstitialStates = new StateHistory<InterstitialState>(3);
         private readonly StateHistory<RewardedState> _rewardedStates = new StateHistory<RewardedState>(3);
+#endif        
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
-        
-        public override void Open()
-        {
-            base.Open();
-            InitMenu();
-        }
-
+#if UNITY_WEBGL
         public void ShowBanner()
         {
             PlaygamaManager.ShowBanner();
@@ -100,6 +98,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
             _rewardedStates.Enqueue(state);
             SetTextProperty(menuSettings.TextLastRewardedStates, "Last Rewarded States", _rewardedStates.ToString());
         }
+#endif
 
         [Serializable]
         public class MenuSettings

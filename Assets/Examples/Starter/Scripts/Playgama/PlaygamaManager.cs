@@ -1,19 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
+#if UNITY_WEBGL
 using Playgama.Modules.Advertisement;
 using Playgama.Modules.Game;
 using Playgama.Modules.Leaderboards;
 using Playgama.Modules.Platform;
 using Playgama.Modules.Storage;
+#endif
 using UnityEngine;
 using UnityEngine.Networking;
+
+#if UNITY_WEBGL
 using DeviceType = Playgama.Modules.Device.DeviceType;
+#endif
 
 namespace Playgama.Examples.Starter.Scripts.Playgama
 {
     public class PlaygamaManager : MonoBehaviour
     {
+#if UNITY_WEBGL
         #region Events
 
         #region Platform
@@ -450,5 +457,6 @@ namespace Playgama.Examples.Starter.Scripts.Playgama
         }        
 
         #endregion
+#endif   
     }
 }

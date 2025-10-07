@@ -1,7 +1,9 @@
 using System;
 using Newtonsoft.Json;
 using Playgama.Examples.Starter.Scripts.Playgama;
+#if UNITY_WEBGL
 using Playgama.Modules.Leaderboards;
+#endif
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +15,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
         [SerializeField] private MenuSettings menuSettings;
 
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
-
+#if UNITY_WEBGL
         public void SetScore()
         {
             if (string.IsNullOrEmpty(menuSettings.InputFieldScore.text) ||
@@ -69,7 +71,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
             menuSettings.InputFieldLeaderboardIdGetEntries.interactable = PlaygamaManager.LeaderboardType == LeaderboardType.InGame;
             menuSettings.ButtonGetEntries.interactable = PlaygamaManager.LeaderboardType == LeaderboardType.InGame;
         }
-
+#endif
         [Serializable]
         public class MenuSettings
         {

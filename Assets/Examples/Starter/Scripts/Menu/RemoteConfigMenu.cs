@@ -11,7 +11,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
     {
         [SerializeField] private MenuSettings menuSettings;
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
-
+#if UNITY_WEBGL
         public void GetRemoteConfig()
         {
             PlaygamaManager.GetRemoteConfig((success, data) =>
@@ -32,7 +32,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
             SetTextProperty(menuSettings.TextIsRemoteConfigSupported, "Is Remote Config Supported", PlaygamaManager.IsRemoteConfigSupported.ToString());
             menuSettings.ButtonGetRemoteConfig.interactable = PlaygamaManager.IsRemoteConfigSupported;
         }
-
+#endif
         [Serializable]
         public class MenuSettings
         {

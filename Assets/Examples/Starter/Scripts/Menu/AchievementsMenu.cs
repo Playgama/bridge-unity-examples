@@ -11,7 +11,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
     {
         [SerializeField] private MenuSettings menuSettings;
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
-
+#if UNITY_WEBGL
         public void UnlockAchievement()
         {
             if (string.IsNullOrEmpty(menuSettings.InputFieldName.text) ||
@@ -91,7 +91,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
             menuSettings.InputFiledKey.interactable = PlaygamaManager.IsAchievementsSupported;
             menuSettings.InputFieldName.interactable = PlaygamaManager.IsAchievementsSupported;
         }
-
+#endif
         [Serializable]
         public class MenuSettings
         {

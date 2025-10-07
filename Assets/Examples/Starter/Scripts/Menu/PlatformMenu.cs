@@ -13,7 +13,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
     {
         [SerializeField] private MenuSettings menuSettings;
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
-
+#if UNITY_WEBGL
         public void SendGameReady()
         {
             PlaygamaManager.SendGameReady();
@@ -124,7 +124,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
             menuSettings.ButtonGetAllGames.interactable = PlaygamaManager.IsGetAllGamesSupported;
             menuSettings.ButtonGetGameById.interactable = PlaygamaManager.IsGetGameByIdSupported;
         }
-
+#endif
         [Serializable]
         public class MenuSettings
         {

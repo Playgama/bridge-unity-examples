@@ -10,10 +10,12 @@ namespace Playgama.Examples.Starter.Scripts.Menu
         [SerializeField] private MenuSettings menuSettings;
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
 
+#if UNITY_WEBGL
         protected override void InitMenu()
         {
             SetTextProperty(menuSettings.TextDeviceType, "Device Type", PlaygamaManager.DeviceType.ToString());
         }
+#endif
 
         [Serializable]
         public class MenuSettings

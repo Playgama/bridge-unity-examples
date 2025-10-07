@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Playgama.Examples.Starter.Scripts.Playgama;
+#if UNITY_WEBGL
 using Playgama.Modules.Storage;
+#endif
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +15,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
         [SerializeField] private MenuSettings menuSettings;
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
 
+#if UNITY_WEBGL
         private StorageType SelectedStorageType => menuSettings.TogglePlatformInternalStorageType.isOn
             ? StorageType.PlatformInternal
             : StorageType.LocalStorage;
@@ -134,7 +137,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
                 }
             }
         }
-
+#endif
         [Serializable]
         public class MenuSettings
         {

@@ -1,6 +1,8 @@
 using System;
 using Playgama.Examples.Starter.Scripts.Playgama;
+#if UNITY_WEBGL
 using Playgama.Modules.Game;
+#endif
 using TMPro;
 using UnityEngine;
 
@@ -9,9 +11,12 @@ namespace Playgama.Examples.Starter.Scripts.Menu
     public class GameMenu : MenuSystem.Menu
     {
         [SerializeField] private MenuSettings menuSettings;
+#if UNITY_WEBGL        
         private readonly StateHistory<VisibilityState> _visibilityStates = new StateHistory<VisibilityState>(3);
+#endif       
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
         
+#if UNITY_WEBGL        
         protected override void Awake()
         {
             base.Awake();
@@ -35,6 +40,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
             _visibilityStates.Enqueue(state);
             SetTextProperty(menuSettings.TextLastVisibleState, "Last Visibility State", _visibilityStates.ToString());
         }
+#endif       
 
         [Serializable]
         public class MenuSettings

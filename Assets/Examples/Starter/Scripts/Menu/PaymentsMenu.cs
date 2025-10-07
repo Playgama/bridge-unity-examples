@@ -13,6 +13,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
 
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
 
+#if UNITY_WEBGL
         public void Purchase()
         {
             PlaygamaManager.Purchase(
@@ -90,7 +91,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
             menuSettings.ButtonGetCatalog.interactable = PlaygamaManager.IsPaymentsSupported;
             menuSettings.ButtonGetPurchases.interactable = PlaygamaManager.IsPaymentsSupported;
         }
-
+#endif
         [Serializable]
         public class MenuSettings
         {

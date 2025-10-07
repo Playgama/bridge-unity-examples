@@ -10,7 +10,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
     {
         [SerializeField] private MenuSettings menuSettings;
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
-
+#if UNITY_WEBGL
         public void Authorize()
         {
             PlaygamaManager.Authorize((success) =>
@@ -46,7 +46,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
                 menuSettings.PlayerAvatarHolder.gameObject.SetActive(menuSettings.PlayerAvatarHolder.childCount > 0);
             }));
         }
-
+#endif
         [Serializable]
         public class MenuSettings
         {

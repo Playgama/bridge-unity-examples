@@ -11,7 +11,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
     {
         [SerializeField] private MenuSettings menuSettings;
         private PlaygamaManager PlaygamaManager => menuSettings.PlaygamaManager;
-
+#if UNITY_WEBGL
         public void Share()
         {
             var options = new Dictionary<string, object>();
@@ -167,7 +167,7 @@ namespace Playgama.Examples.Starter.Scripts.Menu
             menuSettings.ButtonRate.interactable = PlaygamaManager.IsRateSupported;
             
         }
-        
+#endif        
         [Serializable]
         public class MenuSettings
         {
