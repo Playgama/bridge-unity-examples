@@ -10,15 +10,95 @@ using System.Runtime.InteropServices;
 namespace Playgama.Modules.Platform
 {
     public class PlatformModule : MonoBehaviour
-    {        
+    {
+        public event Action<bool> audioStateChanged;
+        public event Action<bool> pauseStateChanged;
+        
+        public string id
+        {
+            get
+            {
 #if !UNITY_EDITOR
-        public string id { get; } = PlaygamaBridgeGetPlatformId();
-        public string language { get; } = PlaygamaBridgeGetPlatformLanguage();
-        public string payload { get; } = PlaygamaBridgeGetPlatformPayload();
-        public string tld { get; } = PlaygamaBridgeGetPlatformTld();
-        public bool isGetAllGamesSupported { get; } = PlaygamaBridgeIsPlatformGetAllGamesSupported() == "true";
-        public bool isGetGameByIdSupported { get; } = PlaygamaBridgeIsPlatformGetGameByIdSupported() == "true";
+                return PlaygamaBridgeGetPlatformId();
+#else
+                return "mock";
+#endif
+            }
+        }
 
+        public string language
+        {
+            get
+            {
+#if !UNITY_EDITOR
+                return PlaygamaBridgeGetPlatformLanguage();
+#else
+                return "en";
+#endif
+            }
+        }
+
+        public string payload
+        {
+            get
+            {
+#if !UNITY_EDITOR
+                return PlaygamaBridgeGetPlatformPayload();
+#else
+                return null;
+#endif
+            }
+        }
+
+        public string tld
+        {
+            get
+            {
+#if !UNITY_EDITOR
+                return PlaygamaBridgeGetPlatformTld();
+#else
+                return null;
+#endif
+            }
+        }
+
+        public bool isAudioEnabled
+        {
+            get
+            {
+#if !UNITY_EDITOR
+                return PlaygamaBridgeIsPlatformAudioEnabled() == "true";
+#else
+                return true;
+#endif
+            }
+        }
+
+        public bool isGetAllGamesSupported
+        {
+            get
+            {
+#if !UNITY_EDITOR
+                return PlaygamaBridgeIsPlatformGetAllGamesSupported() == "true";
+#else
+                return false;
+#endif
+            }
+        }
+
+        public bool isGetGameByIdSupported
+        {
+            get
+            {
+#if !UNITY_EDITOR
+                return PlaygamaBridgeIsPlatformGetGameByIdSupported() == "true";
+#else
+                return false;
+#endif
+            }
+        }
+        
+#if !UNITY_EDITOR
         [DllImport("__Internal")]
         private static extern string PlaygamaBridgeGetPlatformId();
 
@@ -30,6 +110,9 @@ namespace Playgama.Modules.Platform
 
         [DllImport("__Internal")]
         private static extern string PlaygamaBridgeGetPlatformTld();
+
+        [DllImport("__Internal")]
+        private static extern string PlaygamaBridgeIsPlatformAudioEnabled();
 
         [DllImport("__Internal")]
         private static extern string PlaygamaBridgeIsPlatformGetAllGamesSupported();
@@ -48,13 +131,6 @@ namespace Playgama.Modules.Platform
 
         [DllImport("__Internal")]
         private static extern string PlaygamaBridgeGetGameById(string options);
-#else
-        public string id => "mock";
-        public string language => "en";
-        public string payload => null;
-        public string tld => null;
-        public bool isGetAllGamesSupported => false;
-        public bool isGetGameByIdSupported => false;
 #endif
         private Action<DateTime?> _getServerTimeCallback;
 
@@ -132,6 +208,16 @@ namespace Playgama.Modules.Platform
 
 
         // Called from JS
+        private void OnAudioStateChanged(string isEnabled)
+        {
+            audioStateChanged?.Invoke(isEnabled == "true");
+        }
+        
+        private void OnPauseStateChanged(string isPaused)
+        {
+            pauseStateChanged?.Invoke(isPaused == "true");
+        }
+        
         private void OnGetServerTimeCompleted(string result)
         {
             DateTime? date = null;
