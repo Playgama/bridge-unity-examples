@@ -38,3 +38,6 @@ IsAuthSupported = False
 ```
 
 then the **Authorize** button will be disabled.
+
+Proud winner of the Playgama Bridge Unity Example Project Challenge 🏆
+Verified owner: Discord user id 676341205260566528 comrade.r/revorker
