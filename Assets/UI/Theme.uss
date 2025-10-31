@@ -1,0 +1,170 @@
+:root {
+    --color-background: rgba(13, 13, 15, 0.92);
+    --color-light-background: #29292E;
+    --color-light-background-highlighted: #3b3b42;
+    --color-btn-primary: #9747FF;
+    --color-btn-primary-highlighted: #9e56fd;
+    --color-btn: #49494C;
+    --color-btn-highlighted: #555559;
+    --border-radius: 12px;
+    --color-white: #FFFFFF;
+    --color-purple: #AF72FE;
+    --color-orange: #FF6B4A;
+    --color-green: #66C64F;
+    --color-light-blue: #6CC3F5;
+    --color-pink: #FF5ABF;
+    --color-light-green: #BCE648;
+    --color-dark-blue: #5B8FFF;
+    --color-red: #FB3E67;
+    --color-yellow: #FF9A2E;
+    --color-azure: #00C2B2;
+    --color-grey: #A2A2A8;
+    --color-lavender: #D8BBFF;
+    --color-code-block: #1D1D21;
+}
+
+:disabled {
+    opacity: 0.5;
+}
+
+Label, Button, TextField {
+    color: var(--color-white);
+    -unity-font: url("project://database/Assets/TextMesh Pro/Fonts/GeistMono.ttf");
+    -unity-font-definition: url("project://database/Assets/TextMesh Pro/Fonts/GeistMono SDF.asset");
+}
+
+#unity-text-input {
+    padding: 0;
+    background-color: transparent;
+    border-width: 0;
+}
+
+.container {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius);
+    height: 400px;
+    width: 680px;
+}
+
+.header {
+    height: 56px;
+    width: 680px;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 12px 8px;
+}
+
+.header-btn {
+    width: 72px;
+    height: 32px;
+    flex-direction: row;
+}
+
+.header-btn__text {
+    color: var(--color-grey);
+    font-size: 13px;
+}
+
+.header-btn__back-button__icon {
+    background-image: url("project:/Assets/Icons/chevron-left.png");
+    -unity-background-image-tint-color: var(--color-white);
+    height: 10px;
+    width: 6px;
+}
+
+.header-btn__back-button {
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    padding-right: 16px;
+    padding-left: 16px;
+    background-color: var(--color-light-background);
+    border-radius: 16px;
+    margin-right: 8px;
+}
+
+.header-btn__back-button:hover {
+    background-color: var(--color-light-background-highlighted);
+}
+
+.context-container {
+    background-color: var(--color-light-background);
+    flex: 1;
+    border-radius: var(--border-radius);
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    padding: 12px;
+}
+
+.main-btn {
+    background-color: var(--color-btn);
+    width: 176px;
+    height: 81px;
+    padding: 12px 12px 16px;
+    border-radius: var(--border-radius);
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-btn__icon {
+    height: 24px;
+    width: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-btn__icon > VisualElement {
+    height: 20px;
+    width: 20px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url("project:/Assets/Icons/platform.png");
+}
+
+.main-btn__title {
+    height: 13px;
+    font-size: 13px;
+    white-space: normal;
+    margin-bottom: 4px;
+    align-self: flex-end;
+}
+
+.main-btn_inner-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.main-btn:hover > VisualElement > Label {
+    color: var(--color-btn);
+}
+
+.main-btn:hover {
+    background-color: var(--color-white);
+}
+
+.main-btn:hover  > .main-btn__icon > VisualElement {
+    -unity-background-image-tint-color: var(--color-btn);
+}
+
+.main-btn:disabled > VisualElement > Label {
+    color: var(--color-white);
+}
+
+.main-btn:disabled {
+    background-color: var(--color-btn);
+}
+
+.main-btn:disabled  > .main-btn__icon > VisualElement {
+    -unity-background-image-tint-color: var(--color-white);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+}

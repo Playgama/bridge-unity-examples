@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd">
+    <engine:Template name="MainButton" src="MainButton.uxml" />
+    <engine:Style src="Main.uss" />
+    <engine:VisualElement class="container">
+        <engine:VisualElement class="header">
+            <engine:VisualElement class="header__icon-outer-container">
+                <engine:VisualElement class="header__icon-inner-container">
+                    <engine:VisualElement class="header__icon" />
+                </engine:VisualElement>
+                <engine:VisualElement class="header__text" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement class="buttons-container-row">
+            <engine:Instance template="MainButton" name="PlatformButton">
+                <engine:AttributeOverrides element-name="text" text="Platform" />
+            </engine:Instance>
+            <engine:Instance template="MainButton" name="DeviceButton">
+                <engine:AttributeOverrides element-name="text" text="Device" />
+            </engine:Instance>
+            <engine:Instance template="MainButton" name="GameButton">
+                <engine:AttributeOverrides element-name="text" text="Game" />
+            </engine:Instance>
+        </engine:VisualElement>
+        <engine:VisualElement class="buttons-container-row">
+            <engine:Instance template="MainButton" name="StorageButton">
+                <engine:AttributeOverrides element-name="text" text="Storage" />
+            </engine:Instance>
+            <engine:Instance template="MainButton" name="AdvertisementButton">
+                <engine:AttributeOverrides element-name="text" text="Advertisement" />
+            </engine:Instance>
+            <engine:Instance template="MainButton" name="PlayerButton">
+                <engine:AttributeOverrides element-name="text" text="Player" />
+            </engine:Instance>
+        </engine:VisualElement>
+        <engine:VisualElement class="buttons-container-row">
+            <engine:Instance template="MainButton" name="SocialButton">
+                <engine:AttributeOverrides element-name="text" text="Social" />
+            </engine:Instance>
+            <engine:Instance template="MainButton" name="LeaderboardsButton">
+                <engine:AttributeOverrides element-name="text" text="Leaderboards" />
+            </engine:Instance>
+            <engine:Instance template="MainButton" name="PaymentsButton">
+                <engine:AttributeOverrides element-name="text" text="Payments" />
+            </engine:Instance>
+        </engine:VisualElement>
+        <engine:VisualElement class="buttons-container-row">
+            <engine:Instance template="MainButton" name="AchievementsButton">
+                <engine:AttributeOverrides element-name="text" text="Achievements" />
+            </engine:Instance>
+            <engine:Instance template="MainButton" name="RemoteConfigButton">
+                <engine:AttributeOverrides element-name="text" text="Remote Config" />
+            </engine:Instance>
+            <engine:Instance template="MainButton" class="hidden"/>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

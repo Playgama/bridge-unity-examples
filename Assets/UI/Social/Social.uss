@@ -1,0 +1,52 @@
+﻿Button {
+    background-color: var(--color-btn-primary);
+    border-radius: 16px;
+    height: 32px;
+    width: auto;
+    border-width: 0;
+    font-size: 13px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+Button:hover {
+     background-color: var(--color-btn-primary-highlighted);
+ }
+
+
+Button:disabled {
+    background-color: var(--color-btn-primary);
+}
+
+.context-container__title {
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.id-values {
+    flex-direction: column;
+}
+
+.id-value-container {
+    flex-direction: row;
+    height: 9px;
+    margin-bottom: 12px;
+}
+
+.id-value-container__id {
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+.id-value-container__value {
+    font-size: 13px;
+    color: var(--color-lavender);
+}
+
+.margin-bottom {
+    margin-bottom: 16px;
+}
+
+.row {
+    flex-direction: row;
+}

@@ -1,0 +1,86 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements"
+             xmlns:editor="UnityEditor.UIElements" xmlns:enginge="UnityEditor.UIElements"
+             noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+             schemaLocation="UnityEditor.UIElements file:/E:/bridge-unity-examples-playgama/UIElementsSchema/UnityEditor.UIElements.xsd"
+             editor-extension-mode="False">
+    <engine:Template name="MainButton"
+                     src="project://database/Assets/UI/MainButton.uxml?fileID=9197481963319205126&amp;guid=31b6d2b7f28b4a1e95fd6fd6c510043b&amp;type=3#MainButton" />
+    <Style src="Advertising.uss" />
+    <engine:VisualElement class="container">
+        <engine:VisualElement class="header">
+            <engine:VisualElement class="header-btn">
+                <engine:VisualElement class="header-btn__back-button">
+                    <engine:VisualElement class="header-btn__back-button__icon" />
+                </engine:VisualElement>
+                <engine:Label text="Back" class="header-btn__text" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:ScrollView horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden"
+                           class="context-container">
+            <engine:Label text="Sticky" class="context-container__title margin-bottom" />
+            <engine:VisualElement class="id-values margin-bottom">
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Banner Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-banner-supported" />
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Last Banner States:" class="id-value-container__id"  />
+                    <engine:Label text="shown" class="id-value-container__value" name="last-banner-state"/>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement class="row margin-bottom">
+                <engine:Button text="Show" name="show-banner"/>
+                <engine:Button class="secondary-button" text="Hide" name="hide-banner"/>
+            </engine:VisualElement>
+            <engine:VisualElement class="divider margin-bottom" />
+            <engine:Label text="Interstitial" class="context-container__title margin-bottom" />
+            <engine:VisualElement class="id-values margin-bottom">
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Interstitial Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-interstitial-supported"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Minimum Delay Between Interstitial:" class="id-value-container__id" />
+                    <engine:Label text="60" class="id-value-container__value" name="minimum-delay-between-interstitial"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Last interstitial States:" class="id-value-container__id" />
+                    <engine:Label text="closed" class="id-value-container__value" name="last-interstitial-state"/>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement class="row margin-bottom">
+                <engine:Button text="Show" name="show-interstitial"/>
+            </engine:VisualElement>
+            <engine:VisualElement class="divider margin-bottom" />
+            <engine:Label text="Rewarded" class="context-container__title margin-bottom" />
+            <engine:VisualElement class="id-values margin-bottom">
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Rewarded Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-rewarded-supported"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Last Rewarded States:" class="id-value-container__id" />
+                    <engine:Label text="closed" class="id-value-container__value" name="last-rewarded-state"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Rewarded Placement:" class="id-value-container__id" />
+                    <engine:Label text="null" class="id-value-container__value" name="rewarded-placement"/>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement class="row margin-bottom">
+                <engine:Button text="Show" name="show-rewarded"/>
+            </engine:VisualElement>
+            <engine:VisualElement class="divider margin-bottom" />
+            <engine:Label text="Adblock" class="context-container__title margin-bottom" />
+            <engine:VisualElement class="id-values margin-bottom">
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Adblock Detected:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="ad-block-detected" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement class="row margin-bottom">
+                <engine:Button text="Check AdBlock" name="adblock"/>
+            </engine:VisualElement>
+       ¶ </engine:ScrollView>
+    </engine:VisualElement>
+</engine:UXML>

@@ -1,0 +1,81 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements"
+             xmlns:editor="UnityEditor.UIElements" xmlns:enginge="UnityEditor.UIElements"
+             noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+             schemaLocation="UnityEditor.UIElements file:/E:/bridge-unity-examples-playgama/UIElementsSchema/UnityEditor.UIElements.xsd"
+             editor-extension-mode="False">
+    <engine:Template name="MainButton"
+                     src="project://database/Assets/UI/MainButton.uxml?fileID=9197481963319205126&amp;guid=31b6d2b7f28b4a1e95fd6fd6c510043b&amp;type=3#MainButton" />
+    <Style src="Social.uss" />
+    <engine:VisualElement class="container">
+        <engine:VisualElement class="header">
+            <engine:VisualElement class="header-btn">
+                <engine:VisualElement class="header-btn__back-button">
+                    <engine:VisualElement class="header-btn__back-button__icon" />
+                </engine:VisualElement>
+                <engine:Label text="Back" class="header-btn__text" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:ScrollView horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden"
+                           class="context-container">
+            <engine:Label text="Social" class="context-container__title margin-bottom" />
+            <engine:VisualElement class="id-values margin-bottom">
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Share Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-share-supported" />
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Join Community Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-join-community-supported"/>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement class="row margin-bottom">
+                <engine:Button text="Share" name="share"/>
+                <engine:Button text="Join Community" name="join-community"/>
+            </engine:VisualElement>
+            <engine:VisualElement class="divider margin-bottom" />
+            <engine:VisualElement class="id-values margin-bottom">
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Invite Friends Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-invite-friends-supported"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Create Post Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-create-post-supported"/>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement class="row margin-bottom">
+                <engine:Button text="Invite Friends" name="invite-friends" />
+                <engine:Button text="Create a Post" name="create-post"/>
+            </engine:VisualElement>
+            <engine:VisualElement class="divider margin-bottom" />
+            <engine:VisualElement class="id-values margin-bottom">
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Add To Favorites Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-add-to-favorites-supported"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Add To Home Screen Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-add-to-home-screen-supported"/>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement class="row margin-bottom">
+                <engine:Button text="Add to Favorites" name="add-to-favorites"/>
+                <engine:Button text="Add to Home Screen" name="add-to-home-screen"/>
+            </engine:VisualElement>
+            <engine:VisualElement class="divider margin-bottom" />
+            <engine:VisualElement class="id-values margin-bottom">
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Rate Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-rate-supported"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is External Links Allowed:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-external-links-allowed"/>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement class="row margin-bottom">
+                <engine:Button text="Rate" name="rate"/>
+            </engine:VisualElement>
+        </engine:ScrollView>
+    </engine:VisualElement>
+</engine:UXML>

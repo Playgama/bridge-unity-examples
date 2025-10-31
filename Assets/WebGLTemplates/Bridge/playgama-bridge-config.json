@@ -15,58 +15,63 @@
             "devId": "",
             "publisherId": ""
         },
+        "huawei": {
+            "appId": ""
+        },
+        "msn": {
+            "gameId": ""
+        },
+        "discord": {
+            "appId": ""
+        },
+        "gamepush": {
+            "projectId": "",
+            "publicToken": ""
+        },
+        "jio_games": {
+            "packageName": ""
+        },
+        "crazy_games": {
+            "xsollaProjectId": "",
+            "isSandbox": false,
+            "useUserToken": false
+        },
         "facebook": {
-            "bannerPlacementId": "",
-            "interstitialPlacements": [],
-            "rewardedPlacements": []
+            "subscribeForNotificationsOnStart": true,
+            "sendAnalyticsEvents": false
+        },
+        "yandex": {
+            "useSignedData": false,
+            "sendAnalyticsEvents": false
+        },
+        "youtube": {
+            "sendAnalyticsEvents": false
         }
+    },
+    "advertisement": {
+        "interstitial": {
+            "preloadOnStart": true
+        },
+        "rewarded": {
+            "preloadOnStart": true
+        },
+        "useBuiltInErrorPopup": true,
+        "backfillId": ""
     },
     "payments": [
         {
-            "commonId": "NO_Ads",
-            "yandex": {
-                "id": "NO_Ads"
-            },
-            "facebook": {
-                "productID": "NO_Ads"
-            },
-            "msn": {
-                "productId": "NO_Ads"
-            },
+            "id": "test_product",
             "playgama": {
-                "amount": 1
-            },
-            "qa_tool": {
-                "id": "NO_Ads",
-                "amount": 1
-            },
-            "playdeck": {
-                "amount": 1,
-                "description": "NO_Ads"
-            }
-        }, 
-        {
-            "commonId": "100_Coins",
-            "yandex": {
-                "id": "100_Coins"
-            },
-            "facebook": {
-                "productID": "100_Coins"
-            },
-            "msn": {
-                "productId": "100_Coins"
-            },
-            "playgama": {
-                "amount": 1
-            },
-            "qa_tool": {
-                "id": "100_Coins",
-                "amount": 1
-            },
-            "playdeck": {
-                "amount": 1,
-                "description": "100_Coins"
+                "amount": 1 
             }
         }
-    ]
+    ],
+    "leaderboards": [
+        {
+            "id": "test_leaderboard",
+            "isMain": true,
+            "game_distribution": ""
+        }
+    ],
+    "sendAnalyticsEvents": true
 }

@@ -1,0 +1,50 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements"
+             xmlns:editor="UnityEditor.UIElements" xmlns:enginge="UnityEditor.UIElements"
+             noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+             schemaLocation="UnityEditor.UIElements file:/E:/bridge-unity-examples-playgama/UIElementsSchema/UnityEditor.UIElements.xsd"
+             editor-extension-mode="False">
+    <engine:Template name="MainButton"
+                     src="project://database/Assets/UI/MainButton.uxml?fileID=9197481963319205126&amp;guid=31b6d2b7f28b4a1e95fd6fd6c510043b&amp;type=3#MainButton" />
+    <Style src="Player.uss" />
+    <engine:VisualElement class="container">
+        <engine:VisualElement class="header">
+            <engine:VisualElement class="header-btn">
+                <engine:VisualElement class="header-btn__back-button">
+                    <engine:VisualElement class="header-btn__back-button__icon" />
+                </engine:VisualElement>
+                <engine:Label text="Back" class="header-btn__text" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:ScrollView horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden"
+                           class="context-container">
+            <engine:Label text="Device" class="context-container__title margin-bottom" />
+            <engine:VisualElement class="id-values margin-bottom">
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Auth Supported:" class="id-value-container__id" />
+                    <engine:Label text="true" class="id-value-container__value" name="is-auth-supported" />
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Authorized:" class="id-value-container__id" />
+                    <engine:Label text="false" class="id-value-container__value" name="is-authorized"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Player ID:" class="id-value-container__id" />
+                    <engine:Label text="null" class="id-value-container__value" name="player-id"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Player name:" class="id-value-container__id" />
+                    <engine:Label text="null" class="id-value-container__value" name="player-name"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Player Avatar:" class="id-value-container__id" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement class="margin-bottom" name="avatar-container">
+                <engine:VisualElement class="avatar"/>
+            </engine:VisualElement>
+            <engine:VisualElement class="row">
+                <engine:Button text="Authorize" name="authorize"/>
+            </engine:VisualElement>
+        </engine:ScrollView>
+    </engine:VisualElement>
+</engine:UXML>

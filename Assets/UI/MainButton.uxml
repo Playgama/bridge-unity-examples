@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd">
+    <engine:VisualElement class="main-btn">
+        <engine:VisualElement class="main-btn__icon">
+            <engine:VisualElement name="icon"/>
+        </engine:VisualElement>
+        <engine:VisualElement class="main-btn_inner-container">
+            <engine:Label class="main-btn__title" text="Platform" name="text"/>
+            <engine:VisualElement class="main-btn__arrow" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

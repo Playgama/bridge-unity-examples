@@ -1,0 +1,95 @@
+﻿Button {
+    background-color: var(--color-btn-primary);
+    border-radius: 16px;
+    height: 32px;
+    width: auto;
+    border-width: 0;
+    font-size: 13px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+Button:hover {
+     background-color: var(--color-btn-primary-highlighted);
+ }
+
+Button.secondary-button {
+    background-color: var(--color-btn);
+}
+
+Button.secondary-button:hover {
+    background-color: var(--color-btn-highlighted);
+}
+
+TextField {
+    flex: 1;
+    height: 40px;
+    background-color: var(--color-code-block);
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 8px;
+    --unity-cursor-color: var(--color-white);
+    margin-bottom: 8px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+RadioButton > VisualElement > Label {
+    margin-top: 4px;
+    margin-left: 8px;
+}
+
+RadioButton:checked > VisualElement > VisualElement {
+    background-color: var(--color-btn-primary);
+    border-color: var(--color-btn-primary);
+}
+
+RadioButton > VisualElement > VisualElement {
+    background-color: var(--color-code-block);
+    border-color: rgba(255,255,255,0.2);
+}
+
+RadioButton > VisualElement > VisualElement > VisualElement {
+    background-color: var(--color-white);
+}
+
+.context-container__title {
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.id-values {
+    flex-direction: column;
+}
+
+.id-value-container {
+    flex-direction: row;
+    height: 9px;
+    margin-bottom: 12px;
+}
+
+.id-value-container__id {
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+.id-value-container__value {
+    font-size: 13px;
+    color: var(--color-lavender);
+}
+
+.margin-bottom {
+    margin-bottom: 16px;
+}
+
+.row {
+    flex-direction: row;
+}
+
+#coins-field {
+    margin-right: 4px;
+}
+
+#level-field {
+    margin-left: 4px;
+}

@@ -1,0 +1,28 @@
+﻿.context-container__title {
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.id-values {
+    flex-direction: column;
+}
+
+.id-value-container {
+    flex-direction: row;
+    height: 9px;
+    margin-bottom: 12px;
+}
+
+.id-value-container__id {
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+.id-value-container__value {
+    font-size: 13px;
+    color: var(--color-lavender);
+}
+
+.margin-bottom {
+    margin-bottom: 16px;
+}

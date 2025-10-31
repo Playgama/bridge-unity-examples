@@ -1,0 +1,90 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements"
+             xmlns:editor="UnityEditor.UIElements" xmlns:enginge="UnityEditor.UIElements"
+             noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+             schemaLocation="UnityEditor.UIElements file:/E:/bridge-unity-examples-playgama/UIElementsSchema/UnityEditor.UIElements.xsd"
+             editor-extension-mode="False">
+    <engine:Template name="MainButton"
+                     src="project://database/Assets/UI/MainButton.uxml?fileID=9197481963319205126&amp;guid=31b6d2b7f28b4a1e95fd6fd6c510043b&amp;type=3#MainButton" />
+    <Style
+        src="project://database/Assets/UI/Platform/Platform.uss?fileID=7433441132597879392&amp;guid=7fc2b50d1ac84aaf9c7e2efe3e6e26a2&amp;type=3#Platform" />
+    <engine:VisualElement class="container">
+        <engine:VisualElement class="header">
+            <engine:VisualElement class="header-btn">
+                <engine:VisualElement class="header-btn__back-button">
+                    <engine:VisualElement class="header-btn__back-button__icon" />
+                </engine:VisualElement>
+                <engine:Label text="Back" class="header-btn__text" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:ScrollView horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden"
+                           class="context-container">
+            <engine:Label text="Platform" class="context-container__title margin-bottom" />
+            <engine:VisualElement class="id-values margin-bottom">
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Platform ID:" class="id-value-container__id" />
+                    <engine:Label text="qa_tool" class="id-value-container__value" name="platform-id"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Language:" class="id-value-container__id" />
+                    <engine:Label text="en" class="id-value-container__value" name="language"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Payload:" class="id-value-container__id" />
+                    <engine:Label text="null" class="id-value-container__value" name="payload"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="TLD:" class="id-value-container__id" />
+                    <engine:Label text="null" class="id-value-container__value" name="tld"/>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container">
+                    <engine:Label text="Is Audio Enabled:" class="id-value-container__id" />
+                    <engine:Label text="null" class="id-value-container__value" name="is-audio"/>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement class="main-btn__container">
+                <engine:VisualElement class="main-btn__container-row">
+                    <engine:Instance template="MainButton" name="SendGameReadyButton">
+                        <AttributeOverrides element-name="text" text="Send Game ready" />
+                    </engine:Instance>
+                    <engine:Instance template="MainButton" name="SendGameplayStartedButton">
+                        <AttributeOverrides element-name="text" text="Send Gameplay Started" />
+                    </engine:Instance>
+                    <engine:Instance template="MainButton" name="SendGameLoadingStartedButton">
+                        <AttributeOverrides element-name="text" text="Send in Game Loading Started" />
+                    </engine:Instance>
+                </engine:VisualElement>
+                <engine:VisualElement class="main-btn__container-row margin-bottom">
+                    <engine:Instance template="MainButton" name="SendPlayerGotAchievementButton">
+                        <AttributeOverrides element-name="text" text="Send Player got Achievement" />
+                    </engine:Instance>
+                    <engine:Instance template="MainButton" name="SendGameplayStoppedButton">
+                        <AttributeOverrides element-name="text" text="Send Gameplay Stopped" />
+                    </engine:Instance>
+                    <engine:Instance template="MainButton" name="SendGameLoadingStoppedButton">
+                        <AttributeOverrides element-name="text" text="Send in Game Loading Stopped" />
+                    </engine:Instance>
+                </engine:VisualElement>
+                <engine:VisualElement class="id-value-container margin-bottom">
+                    <engine:Label text="Server time:" class="id-value-container__id" />
+                    <engine:Label text="null" class="id-value-container__value " name="server-time"/>
+                </engine:VisualElement>
+                <engine:Button class="server-time__label server-time__button margin-bottom" text="Get Server Time" name="GetServerTimeButton" />
+            </engine:VisualElement>
+            <engine:VisualElement class="divider"/>
+            <engine:VisualElement class="id-value-container margin-bottom">
+                <engine:Label text="Is get All Games supported:" class="id-value-container__id" />
+                <engine:Label text="true" class="id-value-container__value " name="all-games-supported"/>
+            </engine:VisualElement>
+            <engine:Button class="server-time__label server-time__button margin-bottom" text="Get All Games" name="GetAllGamesButton" />
+            <engine:Label enable-rich-text="true" name="all-games-response" class="get-all-games-response margin-bottom" text="[     {         appID: string;         title: string;         url: string;         coverURL: string;         iconURL: string;     },     {         appID: string;         title: string;         url: string;         coverURL: string;         iconURL: string;     },     ... ]"/>
+            <engine:VisualElement class="divider"/>
+            <engine:VisualElement class="id-value-container margin-bottom">
+                <engine:Label text="Is get Game by ID supported:" class="id-value-container__id" />
+                <engine:Label text="true" class="id-value-container__value " name="game-by-id-supported"/>
+            </engine:VisualElement>
+            <engine:TextField placeholder-text="Game ID" class="server-time__label game-id-field" name="game-id-textfield"/>
+            <engine:Button class=" server-time__button margin-bottom" text="Get Game by ID" name="GetGameByIdButton"/>
+            <engine:Label enable-rich-text="true" name="game-response" class="get-all-games-response margin-bottom" text="[     {         appID: string;         title: string;         url: string;         coverURL: string;         iconURL: string;     },     {         appID: string;         title: string;         url: string;         coverURL: string;         iconURL: string;     },     ... ]"/>
+        </engine:ScrollView>
+    </engine:VisualElement>
+</engine:UXML>
