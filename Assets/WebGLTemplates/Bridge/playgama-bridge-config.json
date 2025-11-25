@@ -1,4 +1,5 @@
 {
+    "$schema": "https://bridge.playgama.com/v1.26.1/schema.json",
     "platforms": {
         "game_distribution": {
             "gameId": ""
@@ -28,9 +29,6 @@
             "projectId": "",
             "publicToken": ""
         },
-        "jio_games": {
-            "packageName": ""
-        },
         "crazy_games": {
             "xsollaProjectId": "",
             "isSandbox": false,
@@ -58,20 +56,7 @@
         "useBuiltInErrorPopup": true,
         "backfillId": ""
     },
-    "payments": [
-        {
-            "id": "test_product",
-            "playgama": {
-                "amount": 1 
-            }
-        }
-    ],
-    "leaderboards": [
-        {
-            "id": "test_leaderboard",
-            "isMain": true,
-            "game_distribution": ""
-        }
-    ],
+    "payments": [],
+    "leaderboards": [],
     "sendAnalyticsEvents": true
 }
