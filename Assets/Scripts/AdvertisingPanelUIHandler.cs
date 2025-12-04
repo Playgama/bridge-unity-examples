@@ -64,7 +64,6 @@ public class AdvertisingPanelUIHandler : PanelUIHandler {
         OnChangeBannerState(Bridge.advertisement.bannerState);
         OnChangeInterstitialState(Bridge.advertisement.interstitialState);
         OnChangeRewardedState(Bridge.advertisement.rewardedState);
-        CheckAddBlock();
     }
 
     private void CheckAddBlock() {

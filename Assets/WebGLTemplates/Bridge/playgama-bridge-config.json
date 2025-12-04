@@ -56,7 +56,15 @@
         "useBuiltInErrorPopup": true,
         "backfillId": ""
     },
-    "payments": [],
+    "payments": [
+        {
+            "id": "test_product",
+            "playgama": {
+                "amount": 10
+            },
+            "yandex": "test_product_yandex"
+        }
+    ],
     "leaderboards": [],
     "sendAnalyticsEvents": true
 }

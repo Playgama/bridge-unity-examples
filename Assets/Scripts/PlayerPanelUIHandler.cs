@@ -9,9 +9,7 @@ public class PlayerPanelUIHandler : PanelUIHandler {
     private readonly Label isAuthorizedLabel;
     private readonly Label playerIDLabel;
     private readonly Label playerNameLabel;
-
     private readonly Button authorizeButton;
-
     private readonly VisualElement avatarContainer;
 
     public PlayerPanelUIHandler(UIDocument uiDocument) : base(uiDocument) {
@@ -19,11 +17,8 @@ public class PlayerPanelUIHandler : PanelUIHandler {
         isAuthSupportedLabel = uiDocument.rootVisualElement.Q<Label>("is-auth-supported");
         playerIDLabel = uiDocument.rootVisualElement.Q<Label>("player-id");
         playerNameLabel = uiDocument.rootVisualElement.Q<Label>("player-name");
-
         authorizeButton = uiDocument.rootVisualElement.Q<Button>("authorize");
-
         avatarContainer = uiDocument.rootVisualElement.Q<VisualElement>("avatar-container");
-
         authorizeButton.RegisterCallback<ClickEvent>(_ => Authorize());
     }
 
@@ -34,7 +29,6 @@ public class PlayerPanelUIHandler : PanelUIHandler {
         isAuthSupportedLabel.text = isAuthSupported.ToString();
         playerIDLabel.text = Bridge.player.id;
         playerNameLabel.text = Bridge.player.name;
-
         authorizeButton.SetEnabled(isAuthSupported);
     }
 

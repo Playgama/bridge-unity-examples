@@ -91,7 +91,6 @@ public class PlatformPanelUIHandler : PanelUIHandler {
         payloadLabel.text = string.IsNullOrWhiteSpace(Bridge.platform.payload) ? "<null>" : Bridge.platform.payload;
         tldLabel.text = string.IsNullOrWhiteSpace(Bridge.platform.tld) ? "<null>" : Bridge.platform.tld;
         audioLabel.text = Bridge.platform.isAudioEnabled.ToString();
-        UpdateServerTime();
         allGamesSupportedLabel.text = Bridge.platform.isGetAllGamesSupported.ToString();
         gameByIdSupportedLabel.text = Bridge.platform.isGetGameByIdSupported.ToString();
         getAllGamesButton.SetEnabled(Bridge.platform.isGetAllGamesSupported);
