@@ -96,10 +96,6 @@ Button:disabled {
     background-image: url("project:/Assets/Icons/finish.png");
 }
 
-#SendGameplayStartedButton > .main-btn > .main-btn__icon > VisualElement {
-    background-image: url("project:/Assets/Icons/play.png");
-}
-
 #SendGameLoadingStartedButton > .main-btn > .main-btn__icon > VisualElement {
     background-image: url("project:/Assets/Icons/play.png");
 }
@@ -108,10 +104,50 @@ Button:disabled {
     background-image: url("project:/Assets/Icons/trophee.png");
 }
 
-#SendGameplayStoppedButton > .main-btn > .main-btn__icon > VisualElement {
+#SendGameLoadingStoppedButton > .main-btn > .main-btn__icon > VisualElement {
     background-image: url("project:/Assets/Icons/stop.png");
 }
 
-#SendGameLoadingStoppedButton > .main-btn > .main-btn__icon > VisualElement {
+#SendLevelStartedButton > .main-btn > .main-btn__icon > VisualElement {
+    background-image: url("project:/Assets/Icons/play.png");
+}
+
+#SendLevelCompletedButton > .main-btn > .main-btn__icon > VisualElement {
+    background-image: url("project:/Assets/Icons/finish.png");
+}
+
+#SendLevelFailedButton > .main-btn > .main-btn__icon > VisualElement {
     background-image: url("project:/Assets/Icons/stop.png");
+}
+
+#SendLevelPausedButton > .main-btn > .main-btn__icon > VisualElement {
+    background-image: url("project:/Assets/Icons/stop.png");
+}
+
+#SendLevelResumedButton > .main-btn > .main-btn__icon > VisualElement {
+    background-image: url("project:/Assets/Icons/play.png");
+}
+
+#SendLevelStartedWithOptionsButton > .main-btn > .main-btn__icon > VisualElement {
+    background-image: url("project:/Assets/Icons/play.png");
+}
+
+#SendLevelCompletedWithOptionsButton > .main-btn > .main-btn__icon > VisualElement {
+    background-image: url("project:/Assets/Icons/finish.png");
+}
+
+#SendLevelFailedWithOptionsButton > .main-btn > .main-btn__icon > VisualElement {
+    background-image: url("project:/Assets/Icons/stop.png");
+}
+
+#SendLevelPausedWithOptionsButton > .main-btn > .main-btn__icon > VisualElement {
+    background-image: url("project:/Assets/Icons/stop.png");
+}
+
+#SendLevelResumedWithOptionsButton > .main-btn > .main-btn__icon > VisualElement {
+    background-image: url("project:/Assets/Icons/play.png");
+}
+
+.options-field {
+    width: 100%;
 }

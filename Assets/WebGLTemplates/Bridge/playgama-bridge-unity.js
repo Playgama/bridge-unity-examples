@@ -13,6 +13,8 @@ const STORAGE_VALUES_SEPARATOR = '{bridge_values_separator}'
 // utils
 window.unityInstance = null
 const messageQueue = []
+let progressBarFillingInterval = null
+let progressBarCompleteFillingStarted = false
 
 function sendMessageToUnity(name, value) {
     if (window.unityInstance !== null) {
@@ -32,7 +34,49 @@ function flushMessageQueue() {
 }
 
 function onUnityLoadingProgressChanged(progress) {
+    if (progress >= 1) {
+        if (progressBarFillingInterval !== null) {
+            clearInterval(progressBarFillingInterval)
+            progressBarFillingInterval = null
+        }
+        bridge.game.setLoadingProgress(100)
+        return
+    }
+
+    if (progressBarCompleteFillingStarted) {
+        return
+    }
+
+    if (progress >= 0.9) {
+        progressBarCompleteFillingStarted = true
+        completeProgressBarFilling()
+        return
+    }
+
     bridge.game.setLoadingProgress(progress * 100)
+}
+
+function completeProgressBarFilling() {
+    if (progressBarFillingInterval !== null) {
+        return
+    }
+
+    let currentPercent = 90
+    bridge.game.setLoadingProgress(currentPercent)
+    progressBarFillingInterval = setInterval(() => {
+        currentPercent++
+        if (currentPercent > 99) {
+            currentPercent = 99
+        }
+
+        bridge.game.setLoadingProgress(currentPercent)
+
+        if (currentPercent >= 99) {
+            clearInterval(progressBarFillingInterval)
+            progressBarFillingInterval = null
+            return
+        }
+    }, 500)
 }
 
 window.addEventListener('pointerdown', () => {
@@ -166,8 +210,12 @@ window.getIsPlatformGetGameByIdSupported = function() {
     return bridge.platform.isGetGameByIdSupported.toString()
 }
 
-window.sendMessageToPlatform = function(message) {
-    bridge.platform.sendMessage(message)
+window.sendMessageToPlatform = function(message, options) {
+    if (options) {
+        options = JSON.parse(options)
+    }
+
+    bridge.platform.sendMessage(message, options)
 }
 
 window.getServerTime = function() {
@@ -209,6 +257,10 @@ window.getGameById = function(options) {
 // device
 window.getDeviceType = function() {
     return bridge.device.type
+}
+
+window.getSafeArea = function() {
+    return JSON.stringify(bridge.device.safeArea)
 }
 
 
@@ -437,8 +489,16 @@ window.getIsAddToHomeScreenSupported = function() {
     return bridge.social.isAddToHomeScreenSupported.toString()
 }
 
+window.getIsAddToHomeScreenRewardSupported = function() {
+    return bridge.social.isAddToHomeScreenRewardSupported.toString()
+}
+
 window.getIsAddToFavoritesSupported = function() {
     return bridge.social.isAddToFavoritesSupported.toString()
+}
+
+window.getIsAddToFavoritesRewardSupported = function() {
+    return bridge.social.isAddToFavoritesRewardSupported.toString()
 }
 
 window.getIsRateSupported = function() {
@@ -532,6 +592,26 @@ window.rate = function() {
         })
         .catch(error => {
             sendMessageToUnity('OnRateCompleted', 'false')
+        })
+}
+
+window.getAddToHomeScreenReward = function() {
+    bridge.social.getAddToHomeScreenReward()
+        .then(() => {
+            sendMessageToUnity('OnGetAddToHomeScreenRewardCompleted', 'true')
+        })
+        .catch(error => {
+            sendMessageToUnity('OnGetAddToHomeScreenRewardCompleted', 'false')
+        })
+}
+
+window.getAddToFavoritesReward = function() {
+    bridge.social.getAddToFavoritesReward()
+        .then(() => {
+            sendMessageToUnity('OnGetAddToFavoritesRewardCompleted', 'true')
+        })
+        .catch(error => {
+            sendMessageToUnity('OnGetAddToFavoritesRewardCompleted', 'false')
         })
 }
 
