@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.playgama.bridge": "https://github.com/playgama/bridge-unity.git#develop",
+    "com.playgama.bridge": "https://github.com/playgama/bridge-unity.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.collab-proxy": "2.9.3",
     "com.unity.feature.development": "1.0.2",
