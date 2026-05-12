@@ -1,11 +1,10 @@
 {
   "dependencies": {
     "com.playgama.bridge": {
-      "version": "https://github.com/playgama/bridge-unity.git",
+      "version": "file:/Users/davidsedrakyan/Playgama/bridge-unity",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "951942b15e592b44b4c032d80c4a3828b9397335"
+      "source": "local",
+      "dependencies": {}
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
