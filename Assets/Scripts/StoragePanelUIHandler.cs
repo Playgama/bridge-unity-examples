@@ -2,8 +2,6 @@ using Playgama;
 using UnityEngine.UIElements;
 
 public class StoragePanelUIHandler : PanelUIHandler {
-    private readonly Label storageTypeLabel;
-
     private readonly Button loadDatabutton;
     private readonly Button saveDatabutton;
     private readonly Button deleteDatabutton;
@@ -12,8 +10,6 @@ public class StoragePanelUIHandler : PanelUIHandler {
     private readonly TextField levelField;
 
     public StoragePanelUIHandler(UIDocument uiDocument) : base(uiDocument) {
-        storageTypeLabel = uiDocument.rootVisualElement.Q<Label>("storage-type");
-
         loadDatabutton = uiDocument.rootVisualElement.Q<Button>("load-data");
         saveDatabutton = uiDocument.rootVisualElement.Q<Button>("save-data");
         deleteDatabutton = uiDocument.rootVisualElement.Q<Button>("delete-data");
@@ -30,7 +26,6 @@ public class StoragePanelUIHandler : PanelUIHandler {
         base.Toggle(enable);
         coinsField.value = string.Empty;
         levelField.value = string.Empty;
-        storageTypeLabel.text = Bridge.storage.defaultType.ToString();
     }
 
     private void DeleteClicked() {
