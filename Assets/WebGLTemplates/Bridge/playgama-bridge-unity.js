@@ -96,16 +96,18 @@ function addLocalBridge() {
     if (bridgeScript && bridgeScript.parentNode) {
         bridgeScript.onload = null
         bridgeScript.onerror = null
-        bridgeScript.src = ''
         bridgeScript.parentNode.removeChild(bridgeScript)
     }
 
+    window.bridge = null
+    window.playgamaBridge = null
+
     const scriptElement = document.createElement('script')
     scriptElement.src = './playgama-bridge.js'
-    document.body.appendChild(scriptElement)
     scriptElement.onload = function() {
         initializeBridge()
     }
+    document.body.appendChild(scriptElement)
 }
 
 bridgeScript = document.createElement('script')
@@ -130,6 +132,7 @@ function initializeBridge() {
             bridge.advertisement.on('banner_state_changed', state => sendMessageToUnity('OnBannerStateChanged', state))
             bridge.advertisement.on('interstitial_state_changed', state => sendMessageToUnity('OnInterstitialStateChanged', state))
             bridge.advertisement.on('rewarded_state_changed', state => sendMessageToUnity('OnRewardedStateChanged', state))
+            bridge.advertisement.on('advanced_banners_state_changed', state => sendMessageToUnity('OnAdvancedBannersStateChanged', state))
             bridge.game.on('visibility_state_changed', state => sendMessageToUnity('OnVisibilityStateChanged', state))
             bridge.platform.on('audio_state_changed', isEnabled => sendMessageToUnity('OnAudioStateChanged', isEnabled.toString()))
             bridge.platform.on('pause_state_changed', isPaused => sendMessageToUnity('OnPauseStateChanged', isPaused.toString()))
@@ -216,6 +219,14 @@ window.sendMessageToPlatform = function(message, options) {
     }
 
     bridge.platform.sendMessage(message, options)
+}
+
+window.sendCustomMessageToPlatform = function(id, options) {
+    if (options) {
+        options = JSON.parse(options)
+    }
+
+    bridge.platform.sendCustomMessage(id, options)
 }
 
 window.getServerTime = function() {
@@ -331,18 +342,10 @@ window.getStorageDefaultType = function() {
     return bridge.storage.defaultType
 }
 
-window.getIsStorageSupported = function(storageType) {
-    return bridge.storage.isSupported(storageType).toString()
-}
-
-window.getIsStorageAvailable = function(storageType) {
-    return bridge.storage.isAvailable(storageType).toString()
-}
-
-window.getStorageData = function(key, storageType) {
+window.getStorageData = function(key) {
     let keys = key.split(STORAGE_KEYS_SEPARATOR)
 
-    bridge.storage.get(keys, storageType, false)
+    bridge.storage.get(keys, false)
         .then(data => {
             if (keys.length > 1) {
                 let values = []
@@ -378,11 +381,11 @@ window.getStorageData = function(key, storageType) {
         })
 }
 
-window.setStorageData = function(key, value, storageType) {
+window.setStorageData = function(key, value) {
     let keys = key.split(STORAGE_KEYS_SEPARATOR)
     let values = value.split(STORAGE_VALUES_SEPARATOR)
 
-    bridge.storage.set(keys, values, storageType)
+    bridge.storage.set(keys, values)
         .then(() => {
             sendMessageToUnity('OnSetStorageDataSuccess', key)
         })
@@ -391,10 +394,10 @@ window.setStorageData = function(key, value, storageType) {
         })
 }
 
-window.deleteStorageData = function(key, storageType) {
+window.deleteStorageData = function(key) {
     let keys = key.split(STORAGE_KEYS_SEPARATOR)
 
-    bridge.storage.delete(keys, storageType)
+    bridge.storage.delete(keys)
         .then(() => {
             sendMessageToUnity('OnDeleteStorageDataSuccess', key)
         })
@@ -455,6 +458,26 @@ window.showInterstitial = function(placement) {
 
 window.showRewarded = function(placement) {
     bridge.advertisement.showRewarded(placement)
+}
+
+window.getIsAdvancedBannersSupported = function() {
+    return bridge.advertisement.isAdvancedBannersSupported.toString()
+}
+
+window.getAdvancedBannersState = function() {
+    if (bridge.advertisement.advancedBannersState) {
+        return bridge.advertisement.advancedBannersState
+    } else {
+        return ''
+    }
+}
+
+window.showAdvancedBanners = function(placement) {
+    bridge.advertisement.showAdvancedBanners(placement)
+}
+
+window.hideAdvancedBanners = function() {
+    bridge.advertisement.hideAdvancedBanners()
 }
 
 window.checkAdBlock = function() {
