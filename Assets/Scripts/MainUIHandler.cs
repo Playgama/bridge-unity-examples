@@ -9,7 +9,6 @@ public class MainUIHandler : MonoBehaviour {
     [SerializeField] private UIDocument achievementsUIDocument;
     [SerializeField] private UIDocument advertisingUIDocument;
     [SerializeField] private UIDocument deviceUIDocument;
-    [SerializeField] private UIDocument gameUIDocument;
     [SerializeField] private UIDocument leaderboardsUIDocument;
     [SerializeField] private UIDocument paymentsUIDocument;
     [SerializeField] private UIDocument platformUIDocument;
@@ -17,12 +16,12 @@ public class MainUIHandler : MonoBehaviour {
     [SerializeField] private UIDocument remoteConfigUIDocument;
     [SerializeField] private UIDocument socialUIDocument;
     [SerializeField] private UIDocument storageUIDocument;
+    [SerializeField] private UIDocument tasksUIDocument;
     [SerializeField] private Bridge bridge;
 
     private AchievementsPanelUIHandler achievements;
     private AdvertisingPanelUIHandler advertising;
     private DevicePanelUIHandler device;
-    private GamePanelUIHandler game;
     private LeaderboardsPanelUIHandler leaderboards;
     private PaymentsPanelUIHandler payments;
     private PlatformPanelUIHandler platform;
@@ -30,12 +29,12 @@ public class MainUIHandler : MonoBehaviour {
     private RemoteConfigPanelUIHandler remoteConfig;
     private SocialPanelUIHandler social;
     private StoragePanelUIHandler storage;
+    private TasksPanelUIHandler tasks;
 
     private void Awake() {
         achievements = new AchievementsPanelUIHandler(achievementsUIDocument);
         advertising = new AdvertisingPanelUIHandler(advertisingUIDocument);
         device = new DevicePanelUIHandler(deviceUIDocument);
-        game = new GamePanelUIHandler(gameUIDocument);
         leaderboards = new LeaderboardsPanelUIHandler(leaderboardsUIDocument);
         payments = new PaymentsPanelUIHandler(paymentsUIDocument);
         platform = new PlatformPanelUIHandler(platformUIDocument);
@@ -43,10 +42,10 @@ public class MainUIHandler : MonoBehaviour {
         remoteConfig = new RemoteConfigPanelUIHandler(remoteConfigUIDocument);
         social = new SocialPanelUIHandler(socialUIDocument);
         storage = new StoragePanelUIHandler(storageUIDocument);
+        tasks = new TasksPanelUIHandler(tasksUIDocument);
 
         InitButton("PlatformButton", platform);
         InitButton("DeviceButton", device);
-        InitButton("GameButton", game);
         InitButton("StorageButton", storage);
         InitButton("AdvertisementButton", advertising);
         InitButton("PlayerButton", player);
@@ -55,6 +54,7 @@ public class MainUIHandler : MonoBehaviour {
         InitButton("PaymentsButton", payments);
         InitButton("AchievementsButton", achievements);
         InitButton("RemoteConfigButton", remoteConfig);
+        InitButton("TasksButton", tasks);
         Toggle(true);
         Bridge.platform.SendMessage(PlatformMessage.GameReady);
     }

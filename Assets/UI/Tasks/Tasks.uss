@@ -1,0 +1,55 @@
+Button {
+    background-color: var(--color-btn-primary);
+    border-radius: 16px;
+    height: 32px;
+    width: auto;
+    border-width: 0;
+    font-size: 13px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+Button:hover {
+    background-color: var(--color-btn-primary-highlighted);
+}
+
+Button:disabled {
+    background-color: var(--color-btn-primary);
+}
+
+TextField {
+    flex: 1;
+    height: 40px;
+    background-color: var(--color-code-block);
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 8px;
+    --unity-cursor-color: var(--color-white);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.context-container__title {
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.margin-bottom {
+    margin-bottom: 16px;
+}
+
+.margin-right {
+    margin-right: 8px;
+}
+
+.row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.tasks-response {
+    padding: 16px 12px;
+    background-color: var(--color-code-block);
+    border-radius: 8px;
+    white-space: normal;
+}

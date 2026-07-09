@@ -68,10 +68,6 @@
                     <engine:Label text="Is Rate Supported:" class="id-value-container__id" />
                     <engine:Label text="true" class="id-value-container__value" name="is-rate-supported"/>
                 </engine:VisualElement>
-                <engine:VisualElement class="id-value-container">
-                    <engine:Label text="Is External Links Allowed:" class="id-value-container__id" />
-                    <engine:Label text="true" class="id-value-container__value" name="is-external-links-allowed"/>
-                </engine:VisualElement>
             </engine:VisualElement>
             <engine:VisualElement class="row margin-bottom">
                 <engine:Button text="Rate" name="rate"/>

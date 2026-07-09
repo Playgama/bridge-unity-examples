@@ -15,10 +15,13 @@ public class RemoteConfigPanelUIHandler : PanelUIHandler {
 
         getButton = uiDocument.rootVisualElement.Q<Button>("get-button");
 
-        getButton.RegisterCallback<ClickEvent>(_ => Bridge.remoteConfig.Get(new Dictionary<string, object> {
-            { "name", "levels" },
-            { "value", "5" },
-        }, OnGetRemoteConfig));
+        getButton.RegisterCallback<ClickEvent>(_ => {
+            Bridge.remoteConfig.SetContext(new Dictionary<string, object> {
+                { "name", "levels" },
+                { "value", "5" },
+            });
+            Bridge.remoteConfig.Get(OnGetRemoteConfig);
+        });
     }
 
     public override void Toggle(bool enable) {

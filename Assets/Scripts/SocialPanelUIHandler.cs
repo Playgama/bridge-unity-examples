@@ -10,7 +10,6 @@ public class SocialPanelUIHandler : PanelUIHandler {
     private readonly Label isAddToFavoritesSupportedLabel;
     private readonly Label isAddToHomeScreenSupportedLabel;
     private readonly Label isRateSupportedLabel;
-    private readonly Label isExternalLinksAllowedLabel;
 
     private readonly Button shareButton;
     private readonly Button joinCommunityButton;
@@ -28,7 +27,6 @@ public class SocialPanelUIHandler : PanelUIHandler {
         isAddToFavoritesSupportedLabel = uiDocument.rootVisualElement.Q<Label>("is-add-to-favorites-supported");
         isAddToHomeScreenSupportedLabel = uiDocument.rootVisualElement.Q<Label>("is-add-to-home-screen-supported");
         isRateSupportedLabel = uiDocument.rootVisualElement.Q<Label>("is-rate-supported");
-        isExternalLinksAllowedLabel = uiDocument.rootVisualElement.Q<Label>("is-external-links-allowed");
 
         shareButton = uiDocument.rootVisualElement.Q<Button>("share");
         joinCommunityButton = uiDocument.rootVisualElement.Q<Button>("join-community");
@@ -39,7 +37,8 @@ public class SocialPanelUIHandler : PanelUIHandler {
         rateButton = uiDocument.rootVisualElement.Q<Button>("rate");
 
         shareButton.RegisterCallback<ClickEvent>(_ => Bridge.social.Share(new Dictionary<string, object> {
-            { "some-link", "https://example.com/" }
+            { "text", "Check out this game!" },
+            { "url", "YOUR_GAME_URL" }
         }));
         joinCommunityButton.RegisterCallback<ClickEvent>(_ => Bridge.social.JoinCommunity(new Dictionary<string, object> {
             { "groupId", "some-group-id" }
@@ -48,8 +47,8 @@ public class SocialPanelUIHandler : PanelUIHandler {
             { "text", "Hello World!" }
         }));
         createPostButton.RegisterCallback<ClickEvent>(_ => Bridge.social.CreatePost(new Dictionary<string, object> {
-            { "type", "text" },
-            { "text", "Hello World!" },
+            { "text", "I'm playing this game!" },
+            { "url", "YOUR_GAME_URL" }
         }));
         addToFavoritesButton.RegisterCallback<ClickEvent>(_ => Bridge.social.AddToFavorites());
         addToHomeScreenButton.RegisterCallback<ClickEvent>(_ => Bridge.social.AddToHomeScreen());
@@ -72,7 +71,6 @@ public class SocialPanelUIHandler : PanelUIHandler {
         isAddToHomeScreenSupportedLabel.text = isAddToHomeScreenSupported.ToString();
         var isRateSupported = Bridge.social.isRateSupported;
         isRateSupportedLabel.text = isRateSupported.ToString();
-        isExternalLinksAllowedLabel.text = Bridge.social.isExternalLinksAllowed.ToString();
 
         shareButton.SetEnabled(isShareSupported);
         joinCommunityButton.SetEnabled(isJoinCommunitySupported);
