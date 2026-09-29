@@ -125,6 +125,7 @@ document.head.appendChild(bridgeScript)
 function initializeBridge() {
     clearTimeout(bridgeTimeout)
     bridge.engine = 'unity'
+    bridge.gameVersion = '{{{ PRODUCT_VERSION }}}'
     bridge
         .initialize()
         .then(() => {
@@ -142,7 +143,12 @@ function initializeBridge() {
                 createUnityInstance(
                     CANVAS,
                     {
+#if PROGRESSIVE_ASSET_LOADING
+                        primaryDataUrls: {{{ JSON.stringify(PRIMARY_DATA_FILES) }}},
+                        secondaryDataUrls: {{{ JSON.stringify(SECONDARY_DATA_FILES) }}},
+#else
                         dataUrl: 'Build/{{{ DATA_FILENAME }}}',
+#endif
                         frameworkUrl: 'Build/{{{ FRAMEWORK_FILENAME }}}',
                         codeUrl: 'Build/{{{ CODE_FILENAME }}}',
 #if MEMORY_FILENAME
@@ -198,6 +204,23 @@ window.getPlatformTld = function() {
     } else {
         return ''
     }
+}
+
+window.getPlatformLaunchSource = function() {
+    let launchSource = bridge.platform.launchSource
+    if (typeof launchSource === 'string') {
+        return launchSource
+    } else {
+        return ''
+    }
+}
+
+window.getPlatformData = function() {
+    if (bridge.platform.data) {
+        return JSON.stringify(bridge.platform.data)
+    }
+
+    return ''
 }
 
 window.getIsPlatformAudioEnabled = function() {
@@ -518,6 +541,10 @@ window.getIsRateSupported = function() {
     return bridge.social.isRateSupported.toString()
 }
 
+window.getIsPostRewardSupported = function() {
+    return bridge.social.isPostRewardSupported.toString()
+}
+
 window.share = function(options) {
     if (options) {
         options = JSON.parse(options)
@@ -560,12 +587,12 @@ window.joinCommunity = function(options) {
         })
 }
 
-window.createPost = function(options) {
+window.createPost = function(options, payload) {
     if (options) {
         options = JSON.parse(options)
     }
 
-    bridge.social.createPost(options)
+    bridge.social.createPost(options, payload || undefined)
         .then(() => {
             sendMessageToUnity('OnCreatePostCompleted', 'true')
         })
@@ -621,6 +648,16 @@ window.getAddToFavoritesReward = function() {
         })
         .catch(error => {
             sendMessageToUnity('OnGetAddToFavoritesRewardCompleted', 'false')
+        })
+}
+
+window.getPostReward = function() {
+    bridge.social.getPostReward()
+        .then(data => {
+            sendMessageToUnity('OnGetPostRewardCompletedSuccess', data ? JSON.stringify(data) : '[]')
+        })
+        .catch(error => {
+            sendMessageToUnity('OnGetPostRewardCompletedFailed', 'false')
         })
 }
 
@@ -868,5 +905,42 @@ window.dailyRewardsClaimCurrentReward = function() {
         })
         .catch(error => {
             sendMessageToUnity('OnDailyRewardsClaimCurrentRewardCompletedFailed', 'false')
+        })
+}
+
+// notifications
+window.getIsNotificationsSupported = function() {
+    return bridge.notifications.isSupported.toString()
+}
+
+window.notificationsSchedule = function(options) {
+    options = JSON.parse(options)
+
+    bridge.notifications.schedule(options)
+        .then(() => {
+            sendMessageToUnity('OnNotificationsScheduleCompletedSuccess', '')
+        })
+        .catch(error => {
+            sendMessageToUnity('OnNotificationsScheduleCompletedFailed', 'false')
+        })
+}
+
+window.notificationsCancel = function(id) {
+    bridge.notifications.cancel(id)
+        .then(() => {
+            sendMessageToUnity('OnNotificationsCancelCompletedSuccess', '')
+        })
+        .catch(error => {
+            sendMessageToUnity('OnNotificationsCancelCompletedFailed', 'false')
+        })
+}
+
+window.notificationsCancelAll = function() {
+    bridge.notifications.cancelAll()
+        .then(() => {
+            sendMessageToUnity('OnNotificationsCancelAllCompletedSuccess', '')
+        })
+        .catch(error => {
+            sendMessageToUnity('OnNotificationsCancelAllCompletedFailed', 'false')
         })
 }

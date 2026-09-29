@@ -1,51 +1,5 @@
 {
-    "$schema": "https://bridge.playgama.com/v1.26.1/schema.json",
-    "platforms": {
-        "game_distribution": {
-            "gameId": ""
-        },
-        "telegram": {
-            "adsgramBlockId": ""
-        },
-        "y8": {
-            "gameId": "",
-            "adsenseId": "",
-            "channelId": ""
-        },
-        "lagged": {
-            "devId": "",
-            "publisherId": ""
-        },
-        "huawei": {
-            "appId": ""
-        },
-        "msn": {
-            "gameId": ""
-        },
-        "discord": {
-            "appId": ""
-        },
-        "gamepush": {
-            "projectId": "",
-            "publicToken": ""
-        },
-        "crazy_games": {
-            "xsollaProjectId": "",
-            "isSandbox": false,
-            "useUserToken": false
-        },
-        "facebook": {
-            "subscribeForNotificationsOnStart": true,
-            "sendAnalyticsEvents": false
-        },
-        "yandex": {
-            "useSignedData": false,
-            "sendAnalyticsEvents": false
-        },
-        "youtube": {
-            "sendAnalyticsEvents": false
-        }
-    },
+    "$schema": "https://bridge.playgama.com/v2/stable/schema.json",
     "advertisement": {
         "interstitial": {
             "preloadOnStart": true
@@ -56,15 +10,7 @@
         "useBuiltInErrorPopup": true,
         "backfillId": ""
     },
-    "payments": [
-        {
-            "id": "test_product",
-            "playgama": {
-                "amount": 10
-            },
-            "yandex": "test_product_yandex"
-        }
-    ],
+    "payments": [],
     "leaderboards": [],
     "sendAnalyticsEvents": true
 }
